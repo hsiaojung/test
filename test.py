@@ -14,8 +14,6 @@ import time
 import serial
 
 
-
-
 def signal_handler(signal, frame):
     print("\nprogram exiting gracefully")
     sys.exit(0)
@@ -212,11 +210,11 @@ def print_menu2():
                 os.system('mount /dev/mmcblk1p2 /mnt')    
                 os.system('fswebcam /mnt/image.jpg')
                 os.system('umount /mnt')  
-                print("We save picture to /dev/mmcblk1p2 (/mnt), you can poweroff and pull out sdcard to check picturec!")
+                print("We save picture to /dev/mmcblk1p2 (/mnt), you can poweroff and pull out sdcard to check picture!")
                 print("\n \n")
                 
             else :
-                print("Check SD card !,we need to usesdcard to save picture")
+                print("Check SD card !,we need to use sdcard to save picture")
                 print("\n \n")
             
 
