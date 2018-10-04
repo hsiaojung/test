@@ -46,22 +46,11 @@ class switch(object):
             
 def rs485_test():
 
-    
-    ser = serial.Serial('/dev/ttyS0',baudrate=9600,timeout=1)
-    baton  = 0
-    cycle  = 1
-    count = 0
-    while True:
-            count = count + 1
-            
-    
-            if count > 8 :
-                break
-            print("writing baton={}".format(baton))
-            ser.write((str(baton) + '\n').encode("utf-8"))
-            #line = ser.readline()
-            #print (line)
-            
+	 ser = serial.Serial('/dev/ttyUSB0')  # open serial port
+	 print(ser.name)         # check which port was really used
+	 ser.write(b'hello')     # write a string
+	 ser.close() 
+	            
             
 def startShow():
 
