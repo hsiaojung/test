@@ -45,7 +45,7 @@ class switch(object):
 def rs485_test():
 
 	ser = serial.Serial('/dev/ttyUSB0',9600,timeout=23)  # open serial port
-	print(ser.name)         # check which port was really used
+	print("we use %s to test"%ser.name)         # check which port was really used
 	ser.write(b'\n\rif you see from remote machine,\n\rplease enter [ exit ] to return!"')
 	
 	state = ser.read(4)
