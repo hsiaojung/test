@@ -52,10 +52,11 @@ def rs485_test():
 	
 	state = ser.read(4)
 	### str to bytes
-	#bytes(s, encoding = "utf8")
+	#str.encode(s)
 
+	
 	###bytes to str
-	str(state, encoding = "utf-8")
+	 bytes.decode(state)
 
 	print (type(state))
 	ret = state.find("exit", 0 ,len(state))
