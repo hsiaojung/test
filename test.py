@@ -54,13 +54,12 @@ def rs485_test():
 	readback = state.decode('utf-8','ignore')
 	bytes.decode(state)
 
-	print (readback)
-	
-	ret = readback.find("exit", 0 ,len(state))
-	if ret < 1:
-		   print('== we get return, but it is not we expect, failed\n\n!!!')	
+	#print (readback)
+	if readback.find("exit") >= 0:
+            	print('== we get return AND it is we expect, pass\n\n!!!')	
+		
 	else :
-		   print('== we get return AND it is we expect, pass\n\n!!!')		
+		print('== we get return, but it is not we expect, failed\n\n!!!')		
 	ser.close() 
 	
 def startShow():
