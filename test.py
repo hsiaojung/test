@@ -51,17 +51,18 @@ def rs485_test():
 	ser.write(b'\n\rif you see from remote machine,\n\rplease enter [ exit ] to return!"')
 	
 	state = ser.read(4)
+	readback = state.decode('utf-8','ignore')
 	bytes.decode(state)
 
-	print (type(state))
-	'''
-	ret = state.find("exit", 0 ,len(state))
+	print (readback)
+	
+	ret = readback.find("exit", 0 ,len(state))
 	if ret < 1:
 		   print('== we get return, but it is not we expect, failed\n\n!!!')	
 	else :
 		   print('== we get return AND it is we expect, pass\n\n!!!')		
 	ser.close() 
-	'''
+	
 def startShow():
 
     print("#######################################################################-\n")
