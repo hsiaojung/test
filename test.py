@@ -50,8 +50,11 @@ def rs485_test():
 	print(ser.name)         # check which port was really used
 	ser.write(b'\n\rif you see from remote machine,\n\rplease enter [ exit ] to return!"')
 	state = ser.read(4)
-	#print(state)
-	
+	ret = find("exit", beg=0 end=len(state))
+	if ret < 1:
+		   print('== we get return, but it is not we expect, failed\n\n!!!')	
+	else :
+		   print('== we get return AND it is we expect, pass\n\n!!!')		
 	ser.close() 
 	
 def startShow():
