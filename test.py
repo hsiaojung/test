@@ -54,10 +54,10 @@ def rs485_test():
 
 	#print (readback)
 	if readback.find("exit") >= 0:
-            	print('== we get return AND it is we expect, Pass!!')	
+            	print('== we get return AND it is we expect, Pass!! ')	
 		
 	else :
-		print('== we get return, but it is not we expect, failed!!')		
+		print('== we get return, but it is not we expect, failed!! ')		
 	ser.close() 
 	
 def startShow():
