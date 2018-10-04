@@ -48,7 +48,7 @@ def rs485_test():
 
 	 ser = serial.Serial('/dev/ttyUSB0')  # open serial port
 	 print(ser.name)         # check which port was really used
-	 ser.write(b'hello')     # write a string
+	 ser.write(b'if you see this from remote machine,please enter [ pass ] to return!"')     # write a string
 	 ser.close() 
 	            
             
