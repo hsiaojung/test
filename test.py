@@ -49,7 +49,7 @@ def rs485_test():
 	ser = serial.Serial('/dev/ttyUSB0',9600,timeout=23)  # open serial port
 	print(ser.name)         # check which port was really used
 	ser.write(b'if you see this from remote machine\n,please enter [ pass ] to return!"')
-	state = ser.readline()
+	state = ser.read(6)
 	print(state)
 	ser.close() 
 	
