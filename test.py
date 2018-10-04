@@ -51,12 +51,7 @@ def rs485_test():
 	ser.write(b'\n\rif you see from remote machine,\n\rplease enter [ exit ] to return!"')
 	
 	state = ser.read(4)
-	### str to bytes
-	#str.encode(s)
-
-	
-	###bytes to str
-	 bytes.decode(state)
+	bytes.decode(state)
 
 	print (type(state))
 	ret = state.find("exit", 0 ,len(state))
