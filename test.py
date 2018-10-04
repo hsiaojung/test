@@ -46,14 +46,13 @@ class switch(object):
             
 def rs485_test():
 
-	 ser = serial.Serial('/dev/ttyUSB0')  # open serial port
-	 print(ser.name)         # check which port was really used
-	 ser.write(b'if you see this from remote machine\n,please enter [ pass ] to return!"')
-	 state = ser.readline()
-         #print(state)
-	 ser.close() 
-	            
-            
+	ser = serial.Serial('/dev/ttyUSB0')  # open serial port
+	print(ser.name)         # check which port was really used
+	ser.write(b'if you see this from remote machine\n,please enter [ pass ] to return!"')
+	state = ser.readline()
+	print(state)
+	ser.close() 
+	
 def startShow():
 
     print("#######################################################################-\n")
