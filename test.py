@@ -48,9 +48,10 @@ def rs485_test():
 
 	ser = serial.Serial('/dev/ttyUSB0',9600,timeout=23)  # open serial port
 	print(ser.name)         # check which port was really used
-	ser.write(b'if you see this. please enter [ exit ] to return!"')
+	ser.write(b'\n\rif you see this,\n\r please enter [ exit ] to return!"')
 	state = ser.read(4)
-	print(state)
+	#print(state)
+	
 	ser.close() 
 	
 def startShow():
