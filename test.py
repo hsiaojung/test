@@ -94,6 +94,13 @@ def lora_rx():
 	readback = state.decode('utf-8','ignore')
 	print (readback)
 	ser.close() 
+	if readback.find("12345678") >= 0:
+	    print('== we get return AND it is we expect, Pass LoRa TEST!! ')  
+	else :
+	    print('== we get return, but it is not we expect, failed LoRa TEST!! ')       
+
+	ser.close() 
+
 
 
             
