@@ -62,7 +62,7 @@ def lora_tx():
 	readback = state.decode('utf-8','ignore')
 	ser.write(b'p2p tx 1234567890\r\n')
 	time.sleep(1)
-	state = ser.read(50)
+	state = ser.read(40)
 	print (readback)
 	readback = state.decode('utf-8','ignore')
 	print (readback)
