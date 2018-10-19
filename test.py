@@ -48,9 +48,7 @@ def lora_tx():
 
 
     ser.write(b'p2p set_sync 12')
-    
     state = ser.read(10)
-    
     ser.write(b'p2p set_freq 926500000')
     
     state = ser.read(10)
