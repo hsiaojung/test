@@ -50,7 +50,7 @@ def lora_tx():
 	ser.read(20)
 	ser.write(b'p2p set_sync 12\r\n')
 	time.sleep(1)
-    ser.read(20)
+	ser.read(20)
 	ser.write(b'p2p set_sf 7\r\n')
 	time.sleep(1)
 	ser.read(20)
