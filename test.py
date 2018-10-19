@@ -41,6 +41,25 @@ class switch(object):
             return True
         else:
             return False
+def lora_tx():
+
+	ser = serial.Serial('/dev/ttyAMA0',115200,timeout=23)  # open serial port
+	print("You need to set RX of LoRa fisrt \n\n")         # check which port was really used
+	
+    ser.write(b'p2p set_sync 12')
+    state = ser.read(10)
+    ser.write(b'p2p set_freq 926500000')
+    state = ser.read(10)
+    ser.write(b'p2p set_sf 7')
+    state = ser.read(10)
+    ser.write(b'p2p set_bw 125')
+    state = ser.read(10)
+    ser.write(b' p2p tx 1234567890')
+    state = ser.read(10)
+    
+	readback = state.decode('utf-8','ignore')
+	print (readback)
+	ser.close() 
             
 def rs485_test():
 
@@ -77,8 +96,8 @@ def task_menu():
         2: "Test I2C0 function",
         3: "Test I2C1 function",
         4: "Test DHT11/22",
-        5: "Test LoRa function over UART0",
-        6: "Test ........?",
+        5: "Test LoRa function over UART0 TX",
+        6: "Test LoRa function over UART0 Rx",
         7: "Test SD CARD",
         8: "Test USB Camera",
         9: "Test RS485 function over UART1"
@@ -169,8 +188,8 @@ def print_menu2():
             print("\n")
             break
         if case('5'):
-            os.system('LoRa!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1')
-            print("\n")
+            print('== start lora_tx module ==')
+            lora_tx()
             print("\n")
             break
         if case('6'):
