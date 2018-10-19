@@ -46,10 +46,13 @@ def lora_tx():
 	ser = serial.Serial('/dev/ttyAMA0',115200,timeout=23)  # open serial port
 	print("You need to set RX of LoRa fisrt \n\n")         # check which port was really used
 	
-	ser.write(b'p2p set_sync 12\n')
+	ser.write(b'p2p set_sync 12\r\n')
 	state = ser.read(15)
+	state2 = ser.read(15)
 	readback = state.decode('utf-8','ignore')
+	readback2 = state.decode('utf-8','ignore')
 	print (readback)
+	print (readback2)
 	'''
 	ser.write(b'p2p set_freq 926500000\r\n')
 	state = ser.read(100)
