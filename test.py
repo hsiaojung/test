@@ -97,7 +97,7 @@ def lora_rx():
 	if readback.find("12345678") >= 0:
 	    print('== we get return AND it is we expect, Pass LoRa TEST!! ')  
 	else :
-	    print('== we get return, but it is not we expect, failed LoRa TEST!! ')       
+	    print('== we get return, but it is not we expect, fail ! LoRa TEST!! ')       
 
 	ser.close() 
 
@@ -160,8 +160,8 @@ def task_menu2():
         2: "Test I2C0 function",
         3: "Test I2C1 function",
         4: "Test DHT11/22",
-        5: "Test LoRa function over UART0",
-        6: "Test MEM",
+        5: "Test LoRa TX function over UART0",
+        6: "Test LoRa RX function over UART0",
         7: "Test SD CARD",
         8: "Test USB Camera",
         9: "Test RS485 function over UART1",
