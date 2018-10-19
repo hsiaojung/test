@@ -47,37 +47,18 @@ def lora_tx():
 	print("You need to set RX of LoRa fisrt \n\n")         # check which port was really used
 	ser.write(b'p2p set_sync 12\r\n')
 	time.sleep(1)
-	state = ser.read(20)
-	readback = state.decode('utf-8','ignore')
 	print (readback)
 	ser.write(b'p2p set_sync 12\r\n')
 	time.sleep(1)
-	state = ser.read(20)
-	readback = state.decode('utf-8','ignore')
 	print (readback)
 	ser.write(b'p2p set_sf 7\r\n')
 	time.sleep(1)
-	state = ser.read(20)
-	readback = state.decode('utf-8','ignore')
 	print (readback)
 	ser.write(b'p2p tx 1234567890\r\n')
 	time.sleep(1)
 	state = ser.read(20)
 	readback = state.decode('utf-8','ignore')
 	print (readback)
-
-	'''
-	ser.write(b'p2p set_freq 926500000\r\n')
-	state = ser.read(100)
-	ser.write(b'p2p set_sf 7\r\n')
-	state = ser.read(100)
-	ser.write(b'p2p set_bw 125\r\n')
-	state = ser.read(100)
-	ser.write(b'p2p tx 1234567890\r\n')
-	state = ser.read(100)
-	readback = state.decode('utf-8','ignore')
-	print (readback)
-	'''
 	ser.close() 
             
 def rs485_test():
