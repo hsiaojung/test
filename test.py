@@ -48,9 +48,10 @@ def lora_tx():
 	ser.write(b'\r\n')
 	
 	ser.write(b'p2p set_sync 12\n')
-	state = ser.read(100)
+	state = ser.read(12)
 	readback = state.decode('utf-8','ignore')
 	print (readback)
+	'''
 	ser.write(b'p2p set_freq 926500000\r\n')
 	state = ser.read(100)
 	ser.write(b'p2p set_sf 7\r\n')
@@ -61,6 +62,7 @@ def lora_tx():
 	state = ser.read(100)
 	readback = state.decode('utf-8','ignore')
 	print (readback)
+	'''
 	ser.close() 
             
 def rs485_test():
