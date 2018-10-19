@@ -70,7 +70,7 @@ def lora_tx():
 
 def lora_rx():
 
-	ser = serial.Serial('/dev/ttyAMA0',115200,timeout=22)  # open serial port
+	ser = serial.Serial('/dev/ttyAMA0',115200,timeout=26)  # open serial port
 	print("\r\n Test LoRa, Rx side \r\n Check TX of LoRa standby!\r\n")         # check which port was really used
 	ser.write(b'p2p set_sync 12\r\n')
 	time.sleep(1)
