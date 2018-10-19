@@ -54,7 +54,7 @@ def lora_tx():
 	ser.write(b'p2p set_bw 125\n')
 	#state = ser.read(10)
 	ser.write(b'p2p tx 1234567890\n')
-	#state = ser.read(10)
+	state = ser.read(10)
 	readback = state.decode('utf-8','ignore')
 	print (readback)
 	ser.close() 
