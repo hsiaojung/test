@@ -230,7 +230,7 @@ def print_menu2():
             break
         if case('6'):
             print('== start lora_rx module ==')
-             lora_rx()
+            lora_rx()
             print("\n \n")
             break
             
