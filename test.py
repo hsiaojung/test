@@ -44,7 +44,7 @@ class switch(object):
 def lora_tx():
 
 	ser = serial.Serial('/dev/ttyAMA0',115200,timeout=5)  # open serial port
-	print("You need to set RX of LoRa fisrt \n\n")         # check which port was really used
+	print("\r\n Testing lora_tx \r\n Check You have set to RX of LoRa already to get Tx sending string!\r\n")         # check which port was really used
 	ser.write(b'p2p set_sync 12\r\n')
 	time.sleep(1)
 	state = ser.read(25)
@@ -67,6 +67,35 @@ def lora_tx():
 	readback = state.decode('utf-8','ignore')
 	print (readback)
 	ser.close() 
+
+def lora_rx():
+
+	ser = serial.Serial('/dev/ttyAMA0',115200,timeout=22)  # open serial port
+	print("\r\n Test LoRa, Rx side \r\n Check TX of LoRa standby!\r\n")         # check which port was really used
+	ser.write(b'p2p set_sync 12\r\n')
+	time.sleep(1)
+	state = ser.read(25)
+	readback = state.decode('utf-8','ignore')
+	print (readback)
+	ser.write(b'p2p set_sync 12\r\n')
+	time.sleep(1)
+	state = ser.read(25)
+	print (readback)
+	readback = state.decode('utf-8','ignore')
+	ser.write(b'p2p set_sf 7\r\n')
+	time.sleep(1)
+	state = ser.read(25)
+	print (readback)
+	readback = state.decode('utf-8','ignore')
+	ser.write(b'p2p rx 20000\r\n')
+	time.sleep(1)
+	state = ser.read(45)
+	print (readback)
+	readback = state.decode('utf-8','ignore')
+	print (readback)
+	ser.close() 
+
+
             
 def rs485_test():
 
