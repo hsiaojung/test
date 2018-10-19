@@ -156,7 +156,7 @@ def task_menu2():
 
     startShow()
     menu = {
-        1: "Show i2c  info",
+        1: "Show I2C info",
         2: "Test I2C0 function",
         3: "Test I2C1 function",
         4: "Test DHT11/22",
