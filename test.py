@@ -229,8 +229,8 @@ def print_menu2():
             print("\n")
             break
         if case('6'):
-            print("== Test and show MEM ==")
-            os.system('free')
+            print('== start lora_rx module ==')
+             lora_rx()
             print("\n \n")
             break
             
