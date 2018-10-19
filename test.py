@@ -47,7 +47,7 @@ def lora_tx():
 	print("You need to set RX of LoRa fisrt \n\n")         # check which port was really used
 	
 	ser.write(b'p2p set_sync 12\n')
-	state = ser.read(12)
+	state = ser.read(15)
 	readback = state.decode('utf-8','ignore')
 	print (readback)
 	'''
