@@ -8,15 +8,14 @@ i2c_address = 0x4B  # default address
 
 t = 0
 while True:
-    # Reads word (2 bytes) as int
+# Reads word (2 bytes) as int
     rd = bus.read_word_data(i2c_address, 0)
-    print("word date={%d}"%rd) 
-    # Exchanges high and low bytes
-    data = ((rd & 0xFF) << 8) | ((rd & 0xFF00) >> 8)
-    # Ignores two least significiant bits
-    data = data >> 2
-    print("T={%s}"%t) 
 
-    t += 0.1
-    time.sleep(0.1)
+# Exchanges high and low bytes
+    data = ((rd & 0xFF) << 8) | ((rd & 0xFF00) >> 8)
+# Ignores two least significiant bits
+    data = data >> 2
+    print("read word date in Dec={%d},in hex={%x},duration={%x} "%rd,%rd,%t) 
+    t += 0.0029
+    time.sleep(t)
     
