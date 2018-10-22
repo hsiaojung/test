@@ -22,5 +22,5 @@ while True:
     print("read word date in Dec={%d},in hex={%x},time duration={%2f} "%(rd,rd,t)) 
     print(datetime.datetime.now())
     #t += 0.000001
-    time.sleep(t)
+    #time.sleep(t)
     
