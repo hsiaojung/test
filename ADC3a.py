@@ -15,7 +15,7 @@ while True:
     data = ((rd & 0xFF) << 8) | ((rd & 0xFF00) >> 8)
     # Ignores two least significiant bits
     data = data >> 2
-    print("T={%s}"%data) 
+    print("T={%s}"%t) 
 
     t += 0.1
     time.sleep(0.1)
