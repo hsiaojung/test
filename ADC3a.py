@@ -8,7 +8,7 @@ import datetime
 bus = smbus.SMBus(1) # RPi revision 2 (0 for revision 1)
 i2c_address = 0x4d  # default address
 
-t = 0.000001
+t = 0.001
 while True:
 # Reads word (2 bytes) as int
     rd = bus.read_word_data(i2c_address, 0)
@@ -19,8 +19,8 @@ while True:
     #data = ((rd & 0xFF) << 8) | ((rd & 0xFF00) >> 8)
 # Ignores two least significiant bits
     #data = data >> 2
-    print("read word date in Dec={%d},in hex={%x},time duration={%2f} "%(rd,rd,t)) 
+    print("read word date in Dec={%d},in hex={%x} "%(rd,rd)) 
     print(datetime.datetime.now())
     #t += 0.000001
-    #time.sleep(t)
+    time.sleep(t)
     
