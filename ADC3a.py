@@ -10,7 +10,7 @@ t = 0
 while True:
     # Reads word (2 bytes) as int
     rd = bus.read_word_data(i2c_address, 0)
-    print("word date={%s}"%data) 
+    print("word date={%d}"%rd) 
     # Exchanges high and low bytes
     data = ((rd & 0xFF) << 8) | ((rd & 0xFF00) >> 8)
     # Ignores two least significiant bits
