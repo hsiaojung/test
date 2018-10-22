@@ -6,7 +6,7 @@ import datetime
 
 
 bus = smbus.SMBus(1) # RPi revision 2 (0 for revision 1)
-i2c_address = 0x4B  # default address
+i2c_address = 0x4d  # default address
 
 t = 0.000001
 while True:
