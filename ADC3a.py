@@ -10,7 +10,7 @@ t = 0
 while True:
 # Reads word (2 bytes) as int
     #rd = bus.read_word_data(i2c_address, 0)
-    block = bus.read_i2c_block_data(i2c_address, 0, 3)
+    block = bus.read_i2c_block_data(i2c_address, 0, 2)
     print(block)
     # Returned value is a list of 16 bytes
 # Exchanges high and low bytes
