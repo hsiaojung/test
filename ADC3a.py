@@ -8,7 +8,7 @@ import datetime
 bus = smbus.SMBus(1) # RPi revision 2 (0 for revision 1)
 i2c_address = 0x4B  # default address
 
-t = 0.0001
+t = 0.00001
 while True:
 # Reads word (2 bytes) as int
     rd = bus.read_word_data(i2c_address, 0)
