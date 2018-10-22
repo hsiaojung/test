@@ -20,6 +20,6 @@ while True:
 # Ignores two least significiant bits
     #data = data >> 2
     print("read word date in Dec={%d},in hex={%x},time duration={%2f} "%(rd,rd,t)) 
-    t += 0.00001
+    t += 0.0001
     time.sleep(t)
     
