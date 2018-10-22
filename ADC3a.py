@@ -2,6 +2,8 @@
 
 import smbus
 import time
+import datetime
+
 
 bus = smbus.SMBus(1) # RPi revision 2 (0 for revision 1)
 i2c_address = 0x4B  # default address
@@ -18,6 +20,5 @@ while True:
 # Ignores two least significiant bits
     #data = data >> 2
     print("read word date in Dec={%d},in hex={%x},time duration={%2f} "%(rd,rd,t)) 
-    #t += 0.0029
-    #time.sleep(t)
+    print(datetime.datetime.now())
     
