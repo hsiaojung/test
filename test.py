@@ -158,7 +158,7 @@ def i2c_voltage_sensor():
 
     bus = smbus.SMBus(1) # RPi revision 2 (0 for revision 1)
     i2c_address = 0x4b  # default address
-    
+    counter = 1
     t = 0.05
     while counter <= 300
     # Reads word (2 bytes) as int
