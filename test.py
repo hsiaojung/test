@@ -138,7 +138,7 @@ def i2c_current_sensor():
     
     t = 0.001
     counter = 1
-    while counter <= 300
+    while counter <= 300:
     # Reads word (2 bytes) as int
         rd = bus.read_word_data(i2c_address, 0)
         block = bus.read_i2c_block_data(i2c_address, 0, 2)
@@ -160,7 +160,7 @@ def i2c_voltage_sensor():
     i2c_address = 0x4b  # default address
     counter = 1
     t = 0.05
-    while counter <= 300
+    while counter <= 300:
     # Reads word (2 bytes) as int
         rd = bus.read_word_data(i2c_address, 0)
         block = bus.read_i2c_block_data(i2c_address, 0, 2)
