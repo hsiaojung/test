@@ -131,13 +131,58 @@ def startShow():
     print("#######################################################################-\n")
             
  
+def i2c_current_sensor():
+
+    bus = smbus.SMBus(1) # RPi revision 2 (0 for revision 1)
+    i2c_address = 0x4d  # default address
+    
+    t = 0.001
+    counter = 1
+    while counter <= 300
+    # Reads word (2 bytes) as int
+        rd = bus.read_word_data(i2c_address, 0)
+        block = bus.read_i2c_block_data(i2c_address, 0, 2)
+        print(block)
+        # Returned value is a list of 16 bytes
+    # Exchanges high and low bytes
+        #data = ((rd & 0xFF) << 8) | ((rd & 0xFF00) >> 8)
+    # Ignores two least significiant bits
+        #data = data >> 2
+        print("read word date in Dec={%d},in hex={%x} "%(rd,rd)) 
+        print(datetime.datetime.now())
+        #t += 0.000001
+        time.sleep(t)
+        counter += 1
+        
+def i2c_voltage_sensor():
+
+    bus = smbus.SMBus(1) # RPi revision 2 (0 for revision 1)
+    i2c_address = 0x4b  # default address
+    
+    t = 0.05
+    while counter <= 300
+    # Reads word (2 bytes) as int
+        rd = bus.read_word_data(i2c_address, 0)
+        block = bus.read_i2c_block_data(i2c_address, 0, 2)
+        print(block)
+        # Returned value is a list of 16 bytes
+    # Exchanges high and low bytes
+        #data = ((rd & 0xFF) << 8) | ((rd & 0xFF00) >> 8)
+    # Ignores two least significiant bits
+        #data = data >> 2
+        print("read word date in Dec={%d},in hex={%x} "%(rd,rd)) 
+        print(datetime.datetime.now())
+        #t += 0.000001
+        time.sleep(t)
+        counter += 1
+
 def task_menu():
 
 
     menu = {
-        1: "Test info",
-        2: "Test I2C0 function",
-        3: "Test I2C1 function",
+        1: "show i2c info",
+        2: "show Current sensor info",
+        3: "show Voltage sensor info",
         4: "Test DHT11/22",
         5: "Test LoRa function over UART0 TX",
         6: "Test LoRa function over UART0 Rx",
@@ -156,16 +201,16 @@ def task_menu2():
 
     startShow()
     menu = {
-        1: "Show I2C info",
-        2: "Test I2C0 function",
-        3: "Test I2C1 function",
+        1: "show i2c info",
+        2: "show Current sensor info",
+        3: "show Voltage sensor info",
         4: "Test DHT11/22",
-        5: "Test LoRa TX function over UART0",
-        6: "Test LoRa RX function over UART0",
+        5: "Test LoRa function over UART0 TX",
+        6: "Test LoRa function over UART0 Rx",
         7: "Test SD CARD",
         8: "Test USB Camera",
-        9: "Test RS485 function over UART1",
-       10: "Test WiFI"
+        9: "Test RS485 function over UART1"
+
     }
     while True:
         ()
@@ -195,12 +240,14 @@ def print_menu2():
             os.system('i2cdetect -l')
             break
         if case('2'):
-            print('== Reading i2c dev from bus 0 ==') 
-            os.system('i2cdetect -r -y 0')
+            print('== Reading i2c dev from bus 1 ,0x4d ==')
+            i2c_current_sensor
             print('\n')
             break
         if case('3'):
-            print('== Reading i2c dev from bus 1 ==') 
+            print('== Reading i2c dev from bus 1 ,0x4b==')
+            i2c_voltage_sensor
+            print('\n')
             ''' 
             Ap Level:
             sudo apt-get install -y python-smbus
@@ -213,10 +260,6 @@ def print_menu2():
             i2c-bcm2708&nbsp;
             i2c-dev
             '''
-            os.system('i2cdetect -r -y 1')
-            os.system('i2cdump  -y 1 0x5c')
-            print('\n')
-            print('\n')
             break
         if case('4'):
             # sudo apt-get update
