@@ -13,6 +13,11 @@ import sys, signal
 import time
 import serial
 
+import smbus
+import time
+import datetime
+
+
 
 def signal_handler(signal, frame):
     print("\nprogram exiting gracefully")
