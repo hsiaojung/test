@@ -241,12 +241,12 @@ def print_menu2():
             break
         if case('2'):
             print('== Reading i2c dev from bus 1 ,0x4d ==')
-            i2c_current_sensor
+            i2c_current_sensor()
             print('\n')
             break
         if case('3'):
             print('== Reading i2c dev from bus 1 ,0x4b==')
-            i2c_voltage_sensor
+            i2c_voltage_sensor()
             print('\n')
             ''' 
             Ap Level:
