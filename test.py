@@ -246,6 +246,8 @@ def print_menu2():
         if case('0'):
             print('== Test cpu and memory==')
             os.system('sudo stress --cpu 4 --vm-bytes  800M ')
+            os.system('top -d 1')
+            
             break
         if case('1'):
             print('== please input mac address you want to set!==')
