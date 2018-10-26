@@ -248,12 +248,12 @@ def print_menu2():
             os.system('sudo stress --cpu 4 --vm-bytes  800M &')
             os.system('top')
             os.system('sudo killall -9 stress')
-            print('==  CPU test done!!!\n\n\n==')
+            print('==  CPU  and memory \n\n\n==')
             break
         if case('1'):
             print('== please input mac address you want to set!==')
-            print('== example 00:0d:48:26:c9:6e  ')
-
+            print('== example: 0x000d4826c96e')
+            input('Enter your input:')
             break
         if case('2'):
             print('== Reading i2c dev from bus 1 ,0x4d ==')
