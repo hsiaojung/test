@@ -185,7 +185,7 @@ def task_menu():
 
 
     menu = {
-        1: "Modify Mac address",
+        #1: "Modify Mac address",
         2: "Show Current sensor info",
         3: "Show Voltage sensor info",
         4: "Test DHT11/22",
@@ -194,7 +194,7 @@ def task_menu():
         7: "Test SD CARD",
         8: "Test USB Camera",
         9: "Test RS485 function over UART1"
-        0: "Test LTE function (network)"
+        1: "Test LTE function (network)"
         }
 
     for i in menu:
