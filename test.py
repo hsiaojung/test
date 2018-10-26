@@ -194,7 +194,7 @@ def task_menu():
         7: "Test SD CARD",
         8: "Test USB Camera",
         9: "Test RS485 function over UART1"
-        1: "Test LTE function (network)"
+        10: "Test RS485 function over UART1"
         }
 
     for i in menu:
