@@ -241,9 +241,10 @@ def print_menu2():
     item = input('\n --Input item you want to test.....\n')
   
     for case in switch(item):
-        if case('1'):
-            print('== Reading from DHT22:11 4~GPIO ==')
-            os.system('i2cdetect -l')
+        if case('0'):
+            print('== please input mac address you want to set!==')
+            print('== example 00:0d:48:26:c9:6e  ')
+
             break
         if case('2'):
             print('== Reading i2c dev from bus 1 ,0x4d ==')
@@ -347,8 +348,6 @@ def print_menu2():
         if case('10'):
             print('== Test LTE! ==\n\n') 
             print('== please insert you sim card first==') 
-            
-
             print("\n \n")
             break            
             
