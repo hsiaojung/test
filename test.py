@@ -185,6 +185,7 @@ def task_menu():
 
 
     menu = {
+        0: "Test CPU and memory",
         1: "Modify Mac address",
         2: "Show Current sensor info",
         3: "Show Voltage sensor info",
@@ -207,6 +208,7 @@ def task_menu2():
 
     startShow()
     menu = {
+        0: "Test CPU and memory",
         1: "Modify Mac address",
         2: "Show Current sensor info",
         3: "Show Voltage sensor info",
@@ -242,6 +244,10 @@ def print_menu2():
   
     for case in switch(item):
         if case('0'):
+            print('== Test cpu and memory==')
+
+            break
+        if case('1'):
             print('== please input mac address you want to set!==')
             print('== example 00:0d:48:26:c9:6e  ')
 
