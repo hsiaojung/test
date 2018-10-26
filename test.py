@@ -251,8 +251,9 @@ def print_menu2():
             print('==CPU and memory \n\n\n==')
             break
         if case('1'):
-            print('== please input mac address you want to set!==')
-            print('Example !you should input like this: 0x000d4826c96e')
+            print('== please input mac address you want to set!\n\n\n==')
+            print('\nFor Example,you should input like this 00:0d:48:26:c9:6e \n')
+            
             thetext = input('Enter your input:')
             print(thetext)            
             myInput = int(thetext)
