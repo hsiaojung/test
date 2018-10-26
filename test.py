@@ -194,7 +194,7 @@ def task_menu():
         7: "Test SD CARD",
         8: "Test USB Camera",
         9: "Test RS485 function over UART1"
-        10: "Test LTE function (network)"
+        0: "Test LTE function (network)"
     }
 
     for i in menu:
@@ -216,7 +216,7 @@ def task_menu2():
         7: "Test SD CARD",
         8: "Test USB Camera",
         9: "Test RS485 function over UART1"
-        10: "Test LTE function (network)"
+        0: "Test LTE function (network)"
     }
     while True:
         ()
