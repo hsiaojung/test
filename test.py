@@ -185,7 +185,7 @@ def task_menu():
 
 
     menu = {
-        #1: "Modify Mac address",
+        1: "Modify Mac address",
         2: "Show Current sensor info",
         3: "Show Voltage sensor info",
         4: "Test DHT11/22",
@@ -193,7 +193,8 @@ def task_menu():
         6: "Test LoRa function over UART0 Rx",
         7: "Test SD CARD",
         8: "Test USB Camera",
-        9: "Test RS485 function over UART1"
+        9: "Test RS485 function over UART1",
+        10:"Test LTE network"
         }
 
     for i in menu:
@@ -214,7 +215,8 @@ def task_menu2():
         6: "Test LoRa function over UART0 Rx",
         7: "Test SD CARD",
         8: "Test USB Camera",
-        9: "Test RS485 function over UART1"
+        9: "Test RS485 function over UART1",
+        10: "Test LTE network"
     }
     while True:
         ()
