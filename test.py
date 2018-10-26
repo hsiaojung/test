@@ -248,6 +248,7 @@ def print_menu2():
             os.system('sudo stress --cpu 4 --vm-bytes  800M &')
             os.system('top')
             os.system('sudo killall -9 stress')
+            print('==  CPU test done!!!\n\n\n==')
             break
         if case('1'):
             print('== please input mac address you want to set!==')
