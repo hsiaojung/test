@@ -185,15 +185,16 @@ def task_menu():
 
 
     menu = {
-        1: "show i2c info",
-        2: "show Current sensor info",
-        3: "show Voltage sensor info",
+        1: "Modify Mac address",
+        2: "Show Current sensor info",
+        3: "Show Voltage sensor info",
         4: "Test DHT11/22",
         5: "Test LoRa function over UART0 TX",
         6: "Test LoRa function over UART0 Rx",
         7: "Test SD CARD",
         8: "Test USB Camera",
         9: "Test RS485 function over UART1"
+        10:"Test LTE function (network)"
     }
 
     for i in menu:
@@ -206,16 +207,16 @@ def task_menu2():
 
     startShow()
     menu = {
-        1: "show i2c info",
-        2: "show Current sensor info",
-        3: "show Voltage sensor info",
+        1: "Modify Mac address",
+        2: "Show Current sensor info",
+        3: "Show Voltage sensor info",
         4: "Test DHT11/22",
         5: "Test LoRa function over UART0 TX",
         6: "Test LoRa function over UART0 Rx",
         7: "Test SD CARD",
         8: "Test USB Camera",
         9: "Test RS485 function over UART1"
-
+        10:"Test LTE function (network)"
     }
     while True:
         ()
@@ -344,8 +345,9 @@ def print_menu2():
             print("\n \n")
             break
         if case('10'):
-            print('== Test nothing  now! ==') 
-
+            print('== Test LTE! ==\n\n') 
+            print('== please insert you sim card first==') 
+            
 
             print("\n \n")
             break            
