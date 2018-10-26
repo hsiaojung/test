@@ -253,7 +253,8 @@ def print_menu2():
         if case('1'):
             print('== please input mac address you want to set!==')
             print('== example: 0x000d4826c96e')
-            input('Enter your input:')
+            thetext = input('Enter your input:')
+            print(thetext)
             break
         if case('2'):
             print('== Reading i2c dev from bus 1 ,0x4d ==')
