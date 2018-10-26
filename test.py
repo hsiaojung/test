@@ -255,6 +255,7 @@ def print_menu2():
             print('Example !you should input like this: 0x000d4826c96e')
             thetext = input('Enter your input:')
             print(thetext)
+            print(type(thetext))
             break
         if case('2'):
             print('== Reading i2c dev from bus 1 ,0x4d ==')
