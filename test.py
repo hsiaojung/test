@@ -258,9 +258,9 @@ def print_menu2():
             print(thetext)            
 
             print ("thetext[1]: ", thetext[2:4])
-            os.system("sudo ethtool -E eth0 magic 0x9500 offset 1 value " +  thetext[2:4])
+            os.system("sudo ethtool -E eth0 magic 0x9500 offset 1 value 0x" +  thetext[2:4])
             print ("thetext[2]: ", thetext[4:6])
-            os.system("sudo ethtool -E eth0 magic 0x9500 offset 2 value " +  thetext[4:6])
+            os.system("sudo ethtool -E eth0 magic 0x9500 offset 2 value 0x" +  thetext[4:6])
 
             '''print ("thetext[3]: ", thetext[6:8])
             os.system("sudo ethtool -E eth0 magic 0x9500 offset 3 value " +  thetext[6:8])
