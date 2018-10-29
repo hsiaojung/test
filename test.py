@@ -245,7 +245,7 @@ def print_menu2():
     for case in switch(item):
         if case('0'):
             print('== Test cpu and memory==')
-            os.system('sudo stress --cpu 4 --vm-bytes 700M --hdd-bytes 512M &')
+            os.system('sudo stress --cpu 4 --vm-bytes 700M -i 1 -d 1 --hdd-bytes 512M &')
             os.system('top')
             os.system('sudo killall -9 stress')
             print('==CPU and memory \n\n\n==')
