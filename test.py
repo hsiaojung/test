@@ -153,7 +153,7 @@ def i2c_current_sensor():
         #data = ((rd & 0xFF) << 8) | ((rd & 0xFF00) >> 8)
     # Ignores two least significiant bits
         #data = data >> 2
-        print("read word date in Dec={%d},in hex={%x} "%(rd,rd)) 
+        print("!!! read word date in Dec={%d},in hex={%x} "%(rd,rd)) 
         print(datetime.datetime.now())
         #t += 0.000001
         time.sleep(t)
@@ -175,7 +175,7 @@ def i2c_voltage_sensor():
         #data = ((rd & 0xFF) << 8) | ((rd & 0xFF00) >> 8)
     # Ignores two least significiant bits
         #data = data >> 2
-        print("read word date in Dec={%d},in hex={%x} "%(rd,rd)) 
+        print("!!!read word date in Dec={%d},in hex={%x} "%(rd,rd)) 
         print(datetime.datetime.now())
         #t += 0.000001
         time.sleep(t)
@@ -279,12 +279,12 @@ def print_menu2():
 
             break
         if case('2'):
-            print('== Reading i2c dev from bus 1 ,0x4d ==')
+            print('== Reading i2c dev from bus 1 ,0x4d ==\n\n')
             i2c_current_sensor()
             print('\n')
             break
         if case('3'):
-            print('== Reading i2c dev from bus 1 ,0x4b==')
+            print('== Reading i2c dev from bus 1 ,0x4b==\n\n')
             i2c_voltage_sensor()
             print('\n')
             ''' 
@@ -307,10 +307,9 @@ def print_menu2():
             #sudo python setup.py install
             #cd examples
             #sudo ./AdafruitDHT.py 11 4
-            print('== Reading from DHT22:11 4~GPIO ==')
+            print('== Reading from DHT22:11 4~GPIO ==\n\n\n')
             os.system('sudo /home/pi/test/Adafruit_Python_DHT/examples/AdafruitDHT.py 11 4')
-            print('\n') 
-            print("\n")
+            print('\n')
             break
         if case('5'):
             print('== start lora_tx module ==')
