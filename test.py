@@ -256,12 +256,13 @@ def print_menu2():
             
             thetext = input('please Enter mac address:')
             print(thetext)            
-            print ("thetext[0]: ", thetext[0])
-            print ("thetext[1]: ", thetext[1])
-            print ("thetext[2]: ", thetext[2:4])
-            print ("thetext[3]: ", thetext[4:6])            
-            print ("thetext[4]: ", thetext[6:8])    
-            print ("thetext[5]: ", thetext[8:10])
+
+            print ("thetext[1]: ", thetext[2:4])
+            print ("thetext[2]: ", thetext[4:6])            
+            print ("thetext[3]: ", thetext[6:8])    
+            print ("thetext[4]: ", thetext[8:10])
+            print ("thetext[5]: ", thetext[10:12])
+            print ("thetext[6]: ", thetext[12:14])
 
             break
         if case('2'):
