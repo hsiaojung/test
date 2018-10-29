@@ -308,6 +308,7 @@ def print_menu2():
             #cd examples
             #sudo ./AdafruitDHT.py 11 4
             print('== Reading from DHT22:11 4~GPIO ==\n\n\n')
+            print('{')
             os.system('sudo /home/pi/test/Adafruit_Python_DHT/examples/AdafruitDHT.py 11 4')
             print('\n')
             break
