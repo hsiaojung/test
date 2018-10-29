@@ -180,7 +180,7 @@ def i2c_voltage_sensor():
         #t += 0.000001
         time.sleep(t)
         counter += 1
-
+'''
 def task_menu():
 
 
@@ -203,7 +203,7 @@ def task_menu():
         print ("(%d) [%s]\n"%(i,menu[i]))
     lst = print_menu()
     print(lst)
- 
+ '''
 def task_menu2():
 
     startShow()
