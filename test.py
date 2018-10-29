@@ -185,7 +185,7 @@ def task_menu():
 
 
     menu = {
-        0: "Test CPU and memory",
+        0: "Test CPU and memory and emmc(hard disk)",
         1: "Modify Mac address",
         2: "Show Current sensor info",
         3: "Show Voltage sensor info",
@@ -208,7 +208,7 @@ def task_menu2():
 
     startShow()
     menu = {
-        0: "Test CPU and memory",
+        0: "Test CPU and memory and emmc(hard disk)",
         1: "Modify Mac address",
         2: "Show Current sensor info",
         3: "Show Voltage sensor info",
@@ -245,7 +245,7 @@ def print_menu2():
     for case in switch(item):
         if case('0'):
             print('== Test cpu and memory==')
-            os.system('sudo stress --cpu 4 --vm-bytes 700M &')
+            os.system('sudo stress --cpu 4 --vm-bytes 700M --hdd-bytes 512M &')
             os.system('top')
             os.system('sudo killall -9 stress')
             print('==CPU and memory \n\n\n==')
@@ -372,7 +372,7 @@ def main():
                 
        #logging.info('Hello pi!')
        
-       while(1):
+       whi                                                                                                                                                                                                                                                                                                                                                                                                                               le(1):
             
             response = os.system("ping -c 1 " + hostname)
     
