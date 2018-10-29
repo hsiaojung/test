@@ -271,10 +271,11 @@ def print_menu2():
             print ("thetext[6]: ", thetext[12:14])
             os.system("sudo ethtool -E eth0 magic 0x9500 offset 6 value " +  thetext[12:14])
             print ("\n \n")
-            os.system("sudo ethtool -e eth0 ")
-            print ("\n \n")
-
             '''  
+            os.system("sudo ethtool -e eth0 ")
+            print ("\n")
+
+            
 
             break
         if case('2'):
