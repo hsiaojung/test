@@ -252,12 +252,11 @@ def print_menu2():
             break
         if case('1'):
             print('== please input mac address you want to set!\n\n\n==')
-            print('\nFor Example,you should input like this 00:0d:48:26:c9:6e \n')
+            print('\nFor Example,you should input like this 0x000d4826c96e \n')
             
             thetext = input('Enter your input:')
             print(thetext)            
-            myInput = int(thetext)
-            print(myInput)
+
             break
         if case('2'):
             print('== Reading i2c dev from bus 1 ,0x4d ==')
