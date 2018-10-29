@@ -311,7 +311,7 @@ def print_menu2():
             print('=========================================')
             os.system('sudo /home/pi/test/Adafruit_Python_DHT/examples/AdafruitDHT.py 11 4')
             print('=========================================')
-            print('\n')
+            print('done!\n')
             break
         if case('5'):
             print('== start lora_tx module ==')
