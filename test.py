@@ -371,9 +371,10 @@ def print_menu2():
 def main():
                 
        #logging.info('Hello pi!')
-       
-       whi                                                                                                                                                                                                                                                                                                                                                                                                                               le(1):
-            
+       '''
+       while(1):
+            try:
+
             response = os.system("ping -c 1 " + hostname)
     
             #and then check the response...
@@ -383,6 +384,7 @@ def main():
             else:
                 print ("host is down!")
                 sleep(5)
+       '''         
        while(1):
             try:
               
