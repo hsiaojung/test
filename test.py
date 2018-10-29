@@ -258,7 +258,7 @@ def print_menu2():
             print(thetext)            
             print ("thetext[0]: ", thetext[0])
             print ("thetext[1]: ", thetext[1])
-            print ("thetext[2]: ", thetext[2])
+            print ("thetext[2]: ", thetext[2:3])
             print ("thetext[3]: ", thetext[3])            
             print ("thetext[4]: ", thetext[4])    
             print ("thetext[5]: ", thetext[5])            
