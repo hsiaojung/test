@@ -208,16 +208,16 @@ def task_menu2():
 
     startShow()
     menu = {
-        0: "Test CPU and memory and EMMC (hard disk)",
-        1: "Modify Mac address",
-        2: "Show Current sensor info",
-        3: "Show Voltage sensor info",
-        4: "Test DHT11/22",
-        5: "Test LoRa function over UART0 TX",
-        6: "Test LoRa function over UART0 Rx",
-        7: "Test SD CARD",
-        8: "Test USB Camera",
-        9: "Test RS485 function over UART1",
+        0: " Test CPU and memory and EMMC (hard disk)",
+        1: " Modify Mac address",
+        2: " Show Current sensor info",
+        3: " Show Voltage sensor info",
+        4: " Test DHT11/22",
+        5: " Test LoRa function over UART0 TX",
+        6: " Test LoRa function over UART0 Rx",
+        7: " Test SD CARD",
+        8: " Test USB Camera",
+        9: " Test RS485 function over UART1",
         10: "Test LTE network"
     }
     while True:
