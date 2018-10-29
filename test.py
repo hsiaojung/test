@@ -258,11 +258,12 @@ def print_menu2():
             print(thetext)            
 
             print ("thetext[1]: ", thetext[2:4])
-            print ("thetext[2]: ", thetext[4:6])            
-            print ("thetext[3]: ", thetext[6:8])    
-            print ("thetext[4]: ", thetext[8:10])
-            print ("thetext[5]: ", thetext[10:12])
-            print ("thetext[6]: ", thetext[12:14])
+            os.system("sudo ethtool -E eth0 magic 0x9500 offset 5 value 0xdb " +  thetext[2:4])
+            #print ("thetext[2]: ", thetext[4:6])            
+            #print ("thetext[3]: ", thetext[6:8])    
+            #print ("thetext[4]: ", thetext[8:10])
+            #print ("thetext[5]: ", thetext[10:12])
+            #print ("thetext[6]: ", thetext[12:14])
 
             break
         if case('2'):
