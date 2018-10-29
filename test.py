@@ -208,7 +208,7 @@ def task_menu2():
 
     startShow()
     menu = {
-        0: " Test CPU and memory and EMMC (hard disk)",
+        0: " stress test: CPU and memory and EMMC (hard disk)",
         1: " Modify Mac address",
         2: " Show Current sensor info",
         3: " Show Voltage sensor info",
