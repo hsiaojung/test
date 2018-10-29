@@ -258,11 +258,10 @@ def print_menu2():
             print(thetext)            
             print ("thetext[0]: ", thetext[0])
             print ("thetext[1]: ", thetext[1])
-            print ("thetext[2]: ", thetext[2:3])
-            print ("thetext[3]: ", thetext[4:5])            
-            print ("thetext[4]: ", thetext[5:6])    
-            print ("thetext[5]: ", thetext[6:7])            
-            print ("thetext[6]: ", thetext[7:8])
+            print ("thetext[2]: ", thetext[1:3])
+            print ("thetext[3]: ", thetext[3:5])            
+            print ("thetext[4]: ", thetext[5:7])    
+            print ("thetext[5]: ", thetext[7:9])
 
             break
         if case('2'):
