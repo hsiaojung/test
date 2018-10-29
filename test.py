@@ -254,8 +254,16 @@ def print_menu2():
             print('== please input mac address you want to set!\n\n\n==')
             print('\nFor Example,you should input like this 0x000d4826c96e \n')
             
-            thetext = input('Enter your input:')
+            thetext = input('please Enter mac address:')
             print(thetext)            
+            print ("thetext[0]: ", thetext[0])
+            print ("thetext[1]: ", thetext[1])
+            print ("thetext[2]: ", thetext[2])
+            print ("thetext[3]: ", thetext[3])            
+            print ("thetext[4]: ", thetext[4])    
+            print ("thetext[5]: ", thetext[5])            
+            print ("thetext[6]: ", thetext[6])
+            print ("thetext[7]: ", thetext[7])
 
             break
         if case('2'):
