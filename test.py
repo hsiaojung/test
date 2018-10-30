@@ -113,7 +113,7 @@ def rs485_test():
 
 	ser = serial.Serial('/dev/ttyS0',115200,timeout=23)  # open serial port
 	print("\n we use [%s] to test and baud rate is at 115200"%ser.name)         # check which port was really used
-	ser.write(b'\n\r \n\n if you see from remote SMG-01machine,\n\r \n\n please enter [ exit ] to return!"')
+	ser.write(b'\n\r \n\n if you see from remote SMG-01 machine,\n\r \n\n please enter [ exit ] to return!"')
 	
 	state = ser.read(4)
 	readback = state.decode('utf-8','ignore')
@@ -123,10 +123,10 @@ def rs485_test():
 	print('============================================')
 	if readback.find("exit") >= 0:
             		
-            	print('\n\n we get answer of return AND it is we expect, Pass !! ')	
+            	print('\n\n we get answer of return AND it is we expect, Pass !!! ')	
 		
 	else :
-		print('== \n\n we get return, but it is not we expect, failed!! ')		
+		print('== \n\n we get return, but it is not we expect, failed !!! ')		
 	ser.close() 
 	print('\n ============================================')
 	
