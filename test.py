@@ -390,14 +390,26 @@ def print_menu2():
             print('==\n  Test LTE! ==\n\n') 
             print('== please remeber to insert you sim card first==') 
             
-            print('== please wait for 15s to complete ppp0 connection!!!! ==') 
+            print('== please wait for 16s to complete ppp0 connection!!!! ==') 
             
             os.system('sudo pon 4GLTE & ')
-            sleep(15)
-            
+            sleep(16)
+            print("\n \n")
             ni.ifaddresses('ppp0')
             ip = ni.ifaddresses('ppp0')[ni.AF_INET][0]['addr']
+             
+            if (2 not in ip) or (len(ip[2]) == 0):
+
+                print('Could not find IP of interface %s. Failed !!!!.' % (ip))
+
+            else
+                print('Could get IP from 4G LTE module   PASS !!!!.' % (ip))
+                break
+    else:
+        break
             os.system('sudo route add default gw '+ ip)    
+
+            
 
             break            
             
