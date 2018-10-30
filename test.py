@@ -406,8 +406,9 @@ def print_menu2():
                 
                 
             os.system('sudo poff 4GLTE & ')
+            print(" please wait to off line for 8S\n \n")
             sleep(8)
-            print("\n \n")
+            print(" please wait to off line for 4S\n \n")
             print("\n \n")
             break            
             
