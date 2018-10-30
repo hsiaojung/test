@@ -363,7 +363,7 @@ def print_menu2():
                 os.system('mount /dev/mmcblk1p2 /mnt')    
                 os.system('fswebcam /mnt/SMG-01.jpg')
                 os.system('umount /mnt')  
-                print("\n\n We save picture named {SMG-01.jpg] into /dev/mmcblk1p2 (/mnt), you can poweroff and pull out sdcard to check picture!")
+                print("\n\n We save picture named 'SMG-01.jpg' into /dev/mmcblk1p2 (/mnt), you can poweroff and pull out sdcard to check picture!")
                 print("\n \n")
                 
             else :
