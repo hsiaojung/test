@@ -402,14 +402,11 @@ def print_menu2():
                 print('Could not find IP of interface %s. Failed !!!!.' % (ip))
 
             else :
-                print('Could get IP from 4G LTE module   PASS !!!!.' % (ip))
-                break
-    else:
-        break
-            os.system('sudo route add default gw '+ ip)    
-
-            
-
+                print('Can get IP from 4G LTE module   PASS !!!!.' % (ip))
+                os.system('sudo route add default gw '+ ip)  
+                os.system('sudo ping 8.8.8.8')  
+                
+          
             break            
             
         if case(''):
