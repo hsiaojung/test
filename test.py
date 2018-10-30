@@ -360,7 +360,7 @@ def print_menu2():
             ret = exists('/dev/mmcblk1')
             
             if ret == 1:
-                os.system('mount /dev/mmcblk1p2 /mnt')    
+                os.system('mount /dev/mmcblk1p1 /mnt')    
                 os.system('fswebcam /mnt/SMG-01.jpg')
                 os.system('umount /mnt')  
                 print("\n\n We save picture named 'SMG-01.jpg' into /dev/mmcblk1p2 (/mnt), you can poweroff and pull out sdcard to check picture!")
