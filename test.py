@@ -390,8 +390,7 @@ def print_menu2():
             print('==\n  Test LTE! ==\n\n') 
             print('== please remeber to insert you sim card first==') 
             
-            print('== please wait for 16s to complete ppp0 connection!!!! ==') 
-            
+            print('== please wait for 16s to complete ppp0 connection!!!! ==')
             os.system('sudo pon 4GLTE & ')
             sleep(16)
             print("\n \n")
