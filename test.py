@@ -386,8 +386,10 @@ def print_menu2():
             break
             
         if case('10'):
-            print('== Test LTE! ==\n\n') 
-            print('== please insert you sim card first==') 
+            print('==\n  Test LTE! ==\n\n') 
+            print('== please remeber to insert you sim card first==') 
+            os.system('sudo pon 4GLTE &') 
+            
             print("\n \n")
             break            
             
