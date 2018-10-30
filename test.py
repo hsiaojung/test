@@ -413,8 +413,7 @@ def print_menu2():
             print("\n please wait to off line for 4S\n \n")
             print("\n \n")
             break       
-         if case('97'):
-         
+         if case('77'):
             os.system("sudo ethtool -e eth0 ")
             print ("\n")
             for i in range(0x01f0):
