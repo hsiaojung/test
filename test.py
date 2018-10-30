@@ -412,7 +412,16 @@ def print_menu2():
             sleep(8)
             print("\n please wait to off line for 4S\n \n")
             print("\n \n")
-            break            
+            break       
+         if case('97'):
+         
+            os.system("sudo ethtool -e eth0 ")
+            print ("\n")
+            for i in range(0x01f0):
+                 print(i)
+                 #os.system("sudo ethtool -E eth0 magic 0x9500 offset "+ str(i) +" value 0xff" )
+            os.system("sudo ethtool -e eth0 ")     
+            break             
             
         if case(''):
             print("bye!")
