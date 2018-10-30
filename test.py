@@ -414,7 +414,7 @@ def print_menu2():
         if case('11'):
             os.system("sudo ethtool -e eth0 ")
             print ("\n")
-            for i in range(0x01f0):
+            for i in range(0x01ff):
                  print(i)
                  #os.system("sudo ethtool -E eth0 magic 0x9500 offset "+ str(i) +" value 0xff" )
             os.system("sudo ethtool -e eth0 ")     
