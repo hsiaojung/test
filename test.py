@@ -404,7 +404,7 @@ def print_menu2():
                 os.system('sudo route add default gw '+ ip)  
                 os.system('sudo ping 8.8.8.8')  
                 
-          
+            os.system('sudo poff 4GLTE & ')
             break            
             
         if case(''):
