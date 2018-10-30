@@ -390,10 +390,10 @@ def print_menu2():
             print('==\n  Test LTE! ==\n\n') 
             print('== please remeber to insert you sim card first==') 
             
-            print('== please wait for 5s ==') 
+            print('== please wait for 15s to complete ppp0 connection!!!! ==') 
             
             os.system('sudo pon 4GLTE & ')
-            sleep(8)
+            sleep(15)
             
             ni.ifaddresses('ppp0')
             ip = ni.ifaddresses('ppp0')[ni.AF_INET][0]['addr']
