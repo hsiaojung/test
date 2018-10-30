@@ -402,7 +402,7 @@ def print_menu2():
 
                 print('Could not find IP of interface %s. Failed !!!!.' % (ip))
 
-            else
+            else :
                 print('Could get IP from 4G LTE module   PASS !!!!.' % (ip))
                 break
     else:
