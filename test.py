@@ -380,7 +380,7 @@ def print_menu2():
             #serial-getty@ttyS0.service  
             #sudo systemctl disable serial-getty@ttyS0.service 
             print('== \n \n Test RS485 over UART now! ==') 
-            print('== \n Please open remote terminal to connect this unit first ==') 
+            print('== \n \n  Please open remote terminal to connect this unit first ==') 
             rs485_test()
             print("\n \n")
             break
