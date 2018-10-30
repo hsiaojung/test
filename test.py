@@ -17,6 +17,7 @@ import smbus
 import time
 import datetime
 
+import netifaces as ni
 
 
 def signal_handler(signal, frame):
@@ -388,9 +389,16 @@ def print_menu2():
         if case('10'):
             print('==\n  Test LTE! ==\n\n') 
             print('== please remeber to insert you sim card first==') 
-            os.system('sudo pon 4GLTE &') 
             
-            print("\n \n")
+            print('== please wait for 5s ==') 
+            
+            os.system('sudo pon 4GLTE & ')
+            sleep(8)
+            
+            ni.ifaddresses('ppp0')
+            ip = ni.ifaddresses('ppp0')[ni.AF_INET][0]['addr']
+            os.system('sudo route add default gw '+ ip)    
+
             break            
             
         if case(''):
