@@ -112,7 +112,7 @@ def lora_rx():
 def rs485_test():
 
 	ser = serial.Serial('/dev/ttyS0',115200,timeout=23)  # open serial port
-	print("we use [%s] to test and baud rate is at 115200"%ser.name)         # check which port was really used
+	print("\n we use [%s] to test and baud rate is at 115200"%ser.name)         # check which port was really used
 	ser.write(b'\n\rif you see from remote machine,\n\rplease enter [ exit ] to return!"')
 	
 	state = ser.read(4)
@@ -376,8 +376,8 @@ def print_menu2():
             #enable uart first! /boot/config enable_uart=1
             #serial-getty@ttyS0.service  
             #sudo systemctl disable serial-getty@ttyS0.service 
-            print('== Test RS485 over UART now! ==') 
-            print('== Please open remote terminal to connect this unit first ==') 
+            print('== \n \n Test RS485 over UART now! ==') 
+            print('== \n Please open remote terminal to connect this unit first ==') 
             rs485_test()
             print("\n \n")
             break
