@@ -112,7 +112,7 @@ def lora_rx():
 def rs485_test():
 
 	ser = serial.Serial('/dev/ttyS0',115200,timeout=23)  # open serial port
-	print("we use [%s] to test"%ser.name)         # check which port was really used
+	print("we use [%s] to test and baud rate is at 115200"%ser.name)         # check which port was really used
 	ser.write(b'\n\rif you see from remote machine,\n\rplease enter [ exit ] to return!"')
 	
 	state = ser.read(4)
@@ -208,7 +208,7 @@ def task_menu2():
 
     startShow()
     menu = {
-        0: " stress test: CPU and memory and EMMC (hard disk)",
+        0: " Stress test: CPU, Memory and EMMC (hard disk)",
         1: " Modify Mac address",
         2: " Show Current sensor info",
         3: " Show Voltage sensor info",
@@ -221,6 +221,9 @@ def task_menu2():
         10:" Test LTE network"
     }
     while True:
+
+
+    
         ()
         for i in menu:
      
@@ -348,7 +351,7 @@ def print_menu2():
         if case('8'):
             #https://www.raspberrypi.org/documentation/usage/webcams/
             # sudo apt-get install fswebcam 
-            print('== Test USB camera now! ==') 
+            print('== Test USB camera now! this function also verify USB interface! ==') 
             ret = exists('/dev/mmcblk1')
             
             if ret == 1:
@@ -378,6 +381,7 @@ def print_menu2():
             rs485_test()
             print("\n \n")
             break
+            
         if case('10'):
             print('== Test LTE! ==\n\n') 
             print('== please insert you sim card first==') 
