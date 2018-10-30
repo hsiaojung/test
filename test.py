@@ -406,7 +406,7 @@ def print_menu2():
                 
                 
             os.system('sudo poff 4GLTE & ')
-             sleep(8)
+            sleep(8)
             break            
             
         if case(''):
