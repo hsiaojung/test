@@ -355,18 +355,19 @@ def print_menu2():
         if case('8'):
             #https://www.raspberrypi.org/documentation/usage/webcams/
             # sudo apt-get install fswebcam 
-            print('== Test USB camera now! this function also verify USB interface! ==') 
+            print('== Test USB camera now! this function also verify USB interface! ==')
+            
             ret = exists('/dev/mmcblk1')
             
             if ret == 1:
                 os.system('mount /dev/mmcblk1p2 /mnt')    
-                os.system('fswebcam /mnt/image.jpg')
+                os.system('fswebcam /mnt/SMG-01.jpg')
                 os.system('umount /mnt')  
-                print("We save picture to /dev/mmcblk1p2 (/mnt), you can poweroff and pull out sdcard to check picture!")
+                print("\n\n We save picture to /dev/mmcblk1p2 (/mnt), you can poweroff and pull out sdcard to check picture!")
                 print("\n \n")
                 
             else :
-                print("Check SD card !,we need to use sdcard to save picture")
+                print("\n\n Check your SD card !,we need to use sdcard to save picture to verify")
                 print("\n \n")
             
 
