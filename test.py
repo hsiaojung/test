@@ -220,7 +220,7 @@ def task_menu2():
         5: " Test LoRa function over UART0 TX",
         6: " Test LoRa function over UART0 Rx",
         7: " Test SD CARD",
-        8: " Test USB Camera",
+        8: " Test USB Camera,Take picture and save at SDCARD",
         9: " Test RS485 function over UART1",
         10:" Test LTE network"
     }
