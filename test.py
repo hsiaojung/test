@@ -128,6 +128,7 @@ def rs485_test():
 	else :
 		print('== \n\n we get return, but it is not we expect, failed!! ')		
 	ser.close() 
+	print('\n ============================================')
 	
 def startShow():
 
