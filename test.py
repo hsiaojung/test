@@ -398,11 +398,12 @@ def print_menu2():
             ip = ni.ifaddresses('ppp0')[ni.AF_INET][0]['addr']
              
             if (len(ip[2]) == 0):
-                print('Could not find IP of interface %s. Failed !!!!.' % (ip))
+                print('Could not find IP of interface %s. Failed !!!!.\n\n' % (ip))
             else :
-                print('Can get IP from 4G LTE module %s. PASS !!!!.' % (ip))
+                print('Can get IP from 4G LTE module %s. PASS !!!!.\n\n' % (ip))
                 os.system('sudo route add default gw '+ ip)  
-                os.system('sudo ping 8.8.8.8')  
+                os.system('sudo ping -c 20 8.8.8.8')  
+                
                 
             os.system('sudo poff 4GLTE & ')
             break            
