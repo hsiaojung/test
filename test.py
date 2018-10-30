@@ -415,8 +415,9 @@ def print_menu2():
             os.system("sudo ethtool -e eth0 ")
             print ("\n")
             for i in range(0x0200):
-                 #print(i)
+                 #
                  os.system("sudo ethtool -E eth0 magic 0x9500 offset %s value 0xff"%i)
+                 print(i)
                   
             os.system("sudo ethtool -e eth0 ")     
             break             
