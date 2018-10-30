@@ -404,15 +404,13 @@ def print_menu2():
             else :
                 print('Can get IP from 4G LTE module %s. PASS !!!!.\n\n' % (ip))
                 os.system('sudo route add default gw '+ ip)  
-                os.system('sudo ping -c 20 8.8.8.8')  
-                
-                
-            os.system('sudo poff 4GLTE & ')
-            print(" \n please wait to off line for 8S\n \n")
-            sleep(8)
-            print("\n please wait to off line for 4S\n \n")
-            print("\n \n")
-            break       
+                os.system('sudo ping -c 20 8.8.8.8')
+                os.system('sudo poff 4GLTE & ')
+                print(" \n please wait to off line for 8S\n \n")
+                sleep(8)
+                print("\n please wait to off line for 4S\n \n")
+                print("\n \n")
+                break       
          if case('11'):
             os.system("sudo ethtool -e eth0 ")
             print ("\n")
