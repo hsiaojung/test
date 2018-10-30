@@ -397,10 +397,8 @@ def print_menu2():
             ni.ifaddresses('ppp0')
             ip = ni.ifaddresses('ppp0')[ni.AF_INET][0]['addr']
              
-            if (2 not in ip) or (len(ip[2]) == 0):
-
+            if (len(ip[2]) == 0):
                 print('Could not find IP of interface %s. Failed !!!!.' % (ip))
-
             else :
                 print('Can get IP from 4G LTE module   PASS !!!!.' % (ip))
                 os.system('sudo route add default gw '+ ip)  
