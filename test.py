@@ -113,7 +113,7 @@ def rs485_test():
 
 	ser = serial.Serial('/dev/ttyS0',115200,timeout=23)  # open serial port
 	print("\n we use [%s] to test and baud rate is at 115200"%ser.name)         # check which port was really used
-	ser.write(b'\n\rif you see from remote SMG-01machine,\n\r \n\n please enter [ exit ] to return!"')
+	ser.write(b'\n\r \n\n if you see from remote SMG-01machine,\n\r \n\n please enter [ exit ] to return!"')
 	
 	state = ser.read(4)
 	readback = state.decode('utf-8','ignore')
