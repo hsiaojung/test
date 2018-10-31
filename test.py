@@ -262,7 +262,8 @@ def print_menu2():
             print('\nFor Example,you should input like this->  0x000d4826c96e \n')
             
             thetext = input('\n\n please Enter mac address:\n\n')
-            print(thetext)            
+            print(thetext)   
+            os.system("sudo ethtool -E eth0 magic 0x9500 offset 0 value 0xA5" +  thetext[2:4])
 
             print ("thetext[1]: ", thetext[2:4])
             os.system("sudo ethtool -E eth0 magic 0x9500 offset 1 value 0x" +  thetext[2:4])
@@ -411,11 +412,10 @@ def print_menu2():
                 print("\n please wait to off line for 4S\n \n")
                 print("\n \n")
                 break
-        if case('11'):
+        if case('19'):
             os.system("sudo ethtool -e eth0 ")
             print ("\n")
             for i in range(0x0200):
-                 #
                  os.system("sudo ethtool -E eth0 magic 0x9500 offset %s value 0xff"%i)
                  print(i)
                   
