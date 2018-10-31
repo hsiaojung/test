@@ -429,8 +429,9 @@ def print_menu2():
             print('== if any error happening you will see a stop!\n\n ==')
             os.system('sudo pon 4GLTE & ')
             sleep(16)
-            print("get interface\n \n")
+            print("get interface...1\n \n")
             ans = ni.ifaddresses('ppp0')
+            print("get interface...2\n \n")
             print(ans)
             print("get interface ip\n \n")
             ip = ni.ifaddresses('ppp0')[ni.AF_INET][0]['addr']
