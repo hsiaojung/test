@@ -392,7 +392,7 @@ def print_menu2():
             print('==\n  Test LTE! ==\n\n') 
             print('== please remeber to insert you sim card first==') 
             
-            print('== \n\n please wait for 16s to complete ppp0 connection!!!!\n\n ==')
+            print('\n\n please wait for 16s to complete ppp0 connection!!!!\n\n ==')
             print('== if any error happening you will see a stop!\n\n ==')
             os.system('sudo pon 4GLTE & ')
             sleep(16)
@@ -412,6 +412,7 @@ def print_menu2():
                 print("\n please wait to off line for 4S\n \n")
                 print("\n \n")
                 break
+            
         if case('19'):
             os.system("sudo ethtool -e eth0 ")
             print ("\n")
@@ -421,7 +422,32 @@ def print_menu2():
                   
             os.system("sudo ethtool -e eth0 ")     
             break             
-            
+        if case('11'):
+            print('==\n  Test LTE part2 by python at command mode ! ==\n\n') 
+            print('== please remeber to insert you sim card first==') 
+            print('\n\n please wait for 16s to complete ppp0 connection!!!!\n\n ==')
+            print('== if any error happening you will see a stop!\n\n ==')
+            os.system('sudo pon 4GLTE & ')
+            sleep(16)
+            print("get interface\n \n")
+            ans = ni.ifaddresses('ppp0')
+            print(ans)
+            print("get interface ip\n \n")
+            ip = ni.ifaddresses('ppp0')[ni.AF_INET][0]['addr']
+            print("check interface and interface ip\n \n") 
+            if (len(ip[2]) == 0):
+                print('Could not find IP of interface %s. Failed !!!!.\n\n' % (ip))
+            else :
+                print('Can get IP from 4G LTE module %s. PASS !!!!.\n\n' % (ip))
+                os.system('sudo route add default gw '+ ip)  
+                os.system('sudo ping -c 20 8.8.8.8')
+                os.system('sudo poff 4GLTE & ')
+                print(" \n please wait to off line for 8S\n \n")
+                sleep(8)
+                print("\n please wait to off line for 4S\n \n")
+                print("\n \n")
+                break
+                    
         if case(''):
             print("bye!")
             print("\n \n")
