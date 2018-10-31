@@ -263,7 +263,7 @@ def print_menu2():
             
             thetext = input('\n\n please Enter mac address:\n\n')
             print(thetext)   
-            os.system("sudo ethtool -E eth0 magic 0x9500 offset 0 value 0xA5" +  thetext[2:4])
+            os.system("sudo ethtool -E eth0 magic 0x9500 offset 0 value 0xA5")
 
             print ("thetext[1]: ", thetext[2:4])
             os.system("sudo ethtool -E eth0 magic 0x9500 offset 1 value 0x" +  thetext[2:4])
