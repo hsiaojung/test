@@ -210,7 +210,7 @@ def task_menu():
     lst = print_menu()
     print(lst)
  '''
-def task_menu2():
+def task_menu2(timealreadyboot):
 
     startShow()
     menu = {
@@ -240,7 +240,7 @@ def task_menu2():
      
             print ("(%d) [%s]"%(i,menu[i]))
             
-        lst = print_menu2()
+        lst = print_menu2(timealreadyboot)
 
 def exists(path):
     """Test whether a path exists.  Returns False for broken symbolic links"""
@@ -569,7 +569,7 @@ def main():
        while(1):
             try:
               
-              task_menu2()
+              task_menu2(timealreadyboot)
               
             except KeyboardInterrupt:
               print('interrupted!')
