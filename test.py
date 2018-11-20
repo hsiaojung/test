@@ -479,7 +479,7 @@ def print_menu2():
                 sleep(8)
                 print("\n please wait to off line for 4S\n \n")
                 print("\n \n")
-                break
+            break
                 
         if case('23'):
             print('==\n  Test LTE part2 by python at command mode ! ==\n\n') 
@@ -506,7 +506,7 @@ def print_menu2():
                 sleep(8)
                 print("\n please wait to off line for 4S\n \n")
                 print("\n \n")
-                break        
+            break        
                 
         if case('11'):
             #https://www.raspberrypi.org/forums/viewtopic.php?t=127042
@@ -521,7 +521,7 @@ def print_menu2():
             file = open(path, 'w+')
             file.write('0')
             file.close()      
-           
+            break
             
         if case('12'):
             print('==\n back to normal mode without auto login ! ==\n\n') 
@@ -532,7 +532,7 @@ def print_menu2():
             file = open(path, 'w+')
             file.write('0')
             file.close()     
-            
+            break
         if case('13'):
             print('==\n back to normal mode without auto login ! ==\n\n') 
             print('==\n this entering also clean boot count! ==\n\n') 
@@ -542,7 +542,7 @@ def print_menu2():
             file = open(path, 'w+')
             file.write('0')
             file.close() 
-
+            break
             
         if case(''):
             print("bye!")
