@@ -19,6 +19,7 @@ import datetime
 
 import netifaces as ni
 
+timealreadyboot = 0
 
 def signal_handler(signal, frame):
     print("\nprogram exiting gracefully")
@@ -223,6 +224,9 @@ def task_menu2():
         8: " Test USB Camera,Take picture and save at SDCARD",
         9: " Test RS485 function over UART1",
         10:" Test LTE network"
+        11:" Auto Login + boot count"
+        12:" disable Auto Login,back to normal!"
+        13:" fixed hdmi pattern mode"
     }
     while True:
 
@@ -243,11 +247,39 @@ def exists(path):
         return False
     return 1
 
+def autologinmode():
+
+
+    path = "/home/pi/autologinmode"
+    file = open(path, 'rw')
+    bc = file.readline()
+    print("bc="%bc)
+    rc = int(bc)
+    rc = rc + 1
+    print("rc="%rc)
+    file.write(str(rc))
+    file.close()     
+    return rc
+
+    
+def boottimes():
+
+
+    path = "/home/pi/bootcount"
+    file = open(path, 'rw')
+    bc = file.readline()
+    print("bc="%bc)
+    rc = int(bc)
+    rc = rc + 1
+    print("rc="%rc)
+    file.write(str(rc))
+    file.close()     
+    return rc
 
 def print_menu2():
 
       
-    item = input('\n --Input item you want to test.....\n')
+    item = input('\n --Input item you want to test....(test boot times=%d)\n'% timealreadyboot )
   
     for case in switch(item):
         if case('0'):
@@ -422,7 +454,7 @@ def print_menu2():
                   
             os.system("sudo ethtool -e eth0 ")     
             break             
-        if case('11'):
+        if case('65'):
             print('==\n  Test LTE part2 by python at command mode ! ==\n\n') 
             print('== please remeber to insert you sim card first==') 
             print('\n\n please wait for 16s to complete ppp0 connection!!!!\n\n ==')
@@ -448,7 +480,68 @@ def print_menu2():
                 print("\n please wait to off line for 4S\n \n")
                 print("\n \n")
                 break
-                    
+                
+        if case('23'):
+            print('==\n  Test LTE part2 by python at command mode ! ==\n\n') 
+            print('== please remeber to insert you sim card first==') 
+            print('\n\n please wait for 16s to complete ppp0 connection!!!!\n\n ==')
+            print('== if any error happening you will see a stop!\n\n ==')
+            os.system('sudo pon 4GLTE & ')
+            sleep(16)
+            print("get interface...1\n \n")
+            ans = ni.ifaddresses('ppp0')
+            print("get interface...2\n \n")
+            print(ans)
+            print("get interface ip\n \n")
+            ip = ni.ifaddresses('ppp0')[ni.AF_INET][0]['addr']
+            print("check interface and interface ip\n \n") 
+            if (len(ip[2]) == 0):
+                print('Could not find IP of interface %s. Failed !!!!.\n\n' % (ip))
+            else :
+                print('Can get IP from 4G LTE module %s. PASS !!!!.\n\n' % (ip))
+                os.system('sudo route add default gw '+ ip)  
+                os.system('sudo ping -c 20 8.8.8.8')
+                os.system('sudo poff 4GLTE & ')
+                print(" \n please wait to off line for 8S\n \n")
+                sleep(8)
+                print("\n please wait to off line for 4S\n \n")
+                print("\n \n")
+                break        
+                
+        if case('11'):
+            print('==\n enable and force into auto login mode ! ==\n\n') 
+            print('==\n this entering also clean boot count! ==\n\n')           
+            os.system('sudo cp /home/pi/test/getty@tty1.service.d/autologin.conf /etc/systemd/system/getty@tty1.service.d/noclear.conf')
+            os.system(' sudo cp /home/pi/test/rc.local.autoup   /etc/rc.local')
+
+            path = "/home/pi/bootcount"
+            
+            file = open(path, 'w')
+            file.write('0')
+            file.close()      
+           
+            
+        if case('12'):
+            print('==\n back to normal mode without auto login ! ==\n\n') 
+            print('==\n this entering also clean boot count! ==\n\n') 
+            os.system('sudo cp /home/pi/test/getty@tty1.service.d/noclear.conf /etc/systemd/system/getty@tty1.service.d/noclear.conf')   
+            os.system(' sudo cp /home/pi/test/rc.local.ori   /etc/rc.local')
+            path = "/home/pi/bootcount"
+            file = open(path, 'w')
+            file.write('0')
+            file.close()     
+            
+        if case('13'):
+            print('==\n back to normal mode without auto login ! ==\n\n') 
+            print('==\n this entering also clean boot count! ==\n\n') 
+            os.system('sudo cp /home/pi/test/getty@tty1.service.d/noclear.conf /etc/systemd/system/getty@tty1.service.d/noclear.conf')   
+            
+            path = "/home/pi/bootcount"
+            file = open(path, 'w')
+            file.write('0')
+            file.close() 
+
+            
         if case(''):
             print("bye!")
             print("\n \n")
@@ -469,7 +562,8 @@ def main():
             else:
                 print ("host is down!")
                 sleep(5)
-       '''         
+       '''     
+       timealreadyboot = boottimes()
        while(1):
             try:
               
