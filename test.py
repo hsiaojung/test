@@ -271,7 +271,7 @@ def boottimes():
 def print_menu2():
 
       
-    item = input('\n --Input item you want to test....(test boot times)='+ timealreadyboot + '\n'%)
+    item = input('\n --Input item you want to test....(test boot times)='+ timealreadyboot + '\n')
     
   
     for case in switch(item):
