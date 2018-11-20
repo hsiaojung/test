@@ -271,7 +271,7 @@ def boottimes():
 
 def print_menu2(timealreadyboot):
 
-    item = input('\n --Input item you want to test bootcount='+str(timealreadyboot)+'\n')
+    item = input('\n --Input item you want to test (current bootcount index)='+str(timealreadyboot)+'\n')
     
   
     for case in switch(item):
