@@ -260,7 +260,7 @@ def autologinmode():
 
     
     rc = rc + 1
-    print("rc="%rc)
+    print("rrc="%rc)
     #file2 = open(path, 'w')
     #file2.write(str(rc))
     #file2.close()     
