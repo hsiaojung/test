@@ -223,7 +223,7 @@ def task_menu2():
         7: " Test SD CARD",
         8: " Test USB Camera,Take picture and save at SDCARD",
         9: " Test RS485 function over UART1",
-        10: " Test LTE ",
+        10:" Test LTE ",
         11:" Auto Login + boot count",
         12:" disable Auto Login,back to normal!",
         13:" fixed hdmi pattern mode"
@@ -266,7 +266,7 @@ def boottimes():
 
 
     path = "/home/pi/bootcount"
-    file = open(path, 'rw')
+    file = open(path, 'r+')
     bc = file.readline()
     print("bc="%bc)
     rc = int(bc)
@@ -509,9 +509,11 @@ def print_menu2():
                 break        
                 
         if case('11'):
+            #https://www.raspberrypi.org/forums/viewtopic.php?t=127042
             print('==\n enable and force into auto login mode ! ==\n\n') 
             print('==\n this entering also clean boot count! ==\n\n')           
             os.system('sudo cp /home/pi/test/getty@tty1.service.d/autologin.conf /etc/systemd/system/getty@tty1.service.d/noclear.conf')
+            #https://www.raspberrypi.org/documentation/linux/usage/rc-local.md
             os.system(' sudo cp /home/pi/test/rc.local.autoup   /etc/rc.local')
 
             path = "/home/pi/bootcount"
