@@ -269,9 +269,10 @@ def boottimes():
     return ret
 
 def print_menu2():
+    
 
       
-    item = input('\n --Input item you want to test..%d..\n'%(timealreadyboot))
+    item = input('\n --Input item you want to test..%d..\n'%( timealreadyboot))
     
   
     for case in switch(item):
