@@ -518,7 +518,7 @@ def print_menu2():
 
             path = "/home/pi/bootcount"
             
-            file = open(path, 'w')
+            file = open(path, 'w+')
             file.write('0')
             file.close()      
            
@@ -529,7 +529,7 @@ def print_menu2():
             os.system('sudo cp /home/pi/test/getty@tty1.service.d/noclear.conf /etc/systemd/system/getty@tty1.service.d/noclear.conf')   
             os.system(' sudo cp /home/pi/test/rc.local.ori   /etc/rc.local')
             path = "/home/pi/bootcount"
-            file = open(path, 'w')
+            file = open(path, 'w+')
             file.write('0')
             file.close()     
             
@@ -539,7 +539,7 @@ def print_menu2():
             os.system('sudo cp /home/pi/test/getty@tty1.service.d/noclear.conf /etc/systemd/system/getty@tty1.service.d/noclear.conf')   
             
             path = "/home/pi/bootcount"
-            file = open(path, 'w')
+            file = open(path, 'w+')
             file.write('0')
             file.close() 
 
