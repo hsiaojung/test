@@ -269,7 +269,7 @@ def boottimes():
     file = open(path, 'w+')
     bc = file.readline()
     print("bc="%bc)
-    rc = int(bc)
+    rc = int(bc,16)
     rc = rc + 1
     print("rc="%rc)
     file.write(str(rc))
