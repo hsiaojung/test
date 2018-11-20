@@ -227,6 +227,7 @@ def task_menu2():
         11:" Auto Login + boot count",
         12:" disable Auto Login,back to normal!",
         13:" fixed hdmi pattern mode"
+        99:" reboot"
     }
     while True:
 
@@ -543,7 +544,13 @@ def print_menu2():
             file.write('0')
             file.close() 
             break
-            
+        if case('99'):
+            print('==\n reboot system ! ==\n\n') 
+          
+            os.system('sudo reboot')   
+
+            break
+                 
         if case(''):
             print("bye!")
             print("\n \n")
