@@ -251,24 +251,6 @@ def exists(path):
 def autologinmode():
 
 
-    path = "/home/pi/autologinmode"
-    file = open(path, 'r+')
-    bc = file.readline()
-    print("bc="%bc)
-    rc = int(bc)
-    file.close()  
-
-    
-    rc = rc + 1
-    print("rrc="%rc)
-    rc = str(rc)
-    #file2 = open(path, 'w')
-    #file2.write(str(rc))
-    #file2.close()     
-    os.system("sudo echo %s /home/pi/bootcount "%rc)
-    #os.system("sudo echo ethtool -E eth0 magic 0x9500 offset 0 value 0xA5")
-    return rc
-
     
 def boottimes():
 
@@ -278,6 +260,10 @@ def boottimes():
     bc = file.readline()
     print("bc=%s"%bc)
     rc = int(bc)
+    file.close() 
+
+    
+    file = open(path, 'w')
     rc = rc + 1
     print("rc=%d"%rc)
     file.write(str(rc))
