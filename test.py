@@ -247,11 +247,7 @@ def exists(path):
     except OSError:
         return False
     return 1
-
-def autologinmode():
-
-
-    
+  
 def boottimes():
 
 
