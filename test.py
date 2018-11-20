@@ -270,7 +270,9 @@ def boottimes():
     return ret
 
 def print_menu2():
-    
+    print ("111111111")
+
+    print (timealreadyboot) 
 
       
     item = input('\n --Input item you want to test bootcount='+str(timealreadyboot)+'\n')
