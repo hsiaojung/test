@@ -269,8 +269,7 @@ def boottimes():
     file.close()     
     return ret
 
-def print_menu2():
-    print ("111111111")
+def print_menu2(timealreadyboot):
 
     print (timealreadyboot) 
 
@@ -573,7 +572,7 @@ def main():
        while(1):
             try:
               
-              task_menu2()
+              task_menu2(timealreadyboot)
               
             except KeyboardInterrupt:
               print('interrupted!')
