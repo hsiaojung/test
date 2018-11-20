@@ -210,7 +210,7 @@ def task_menu():
     lst = print_menu()
     print(lst)
  '''
-def task_menu2(timealreadyboot):
+def task_menu2():
 
     startShow()
     menu = {
@@ -240,7 +240,7 @@ def task_menu2(timealreadyboot):
      
             print ("(%d) [%s]"%(i,menu[i]))
             
-        lst = print_menu2(timealreadyboot)
+        lst = print_menu2()
 
 def exists(path):
     """Test whether a path exists.  Returns False for broken symbolic links"""
@@ -271,9 +271,6 @@ def boottimes():
 
 def print_menu2(timealreadyboot):
 
-    print (timealreadyboot) 
-
-      
     item = input('\n --Input item you want to test bootcount='+str(timealreadyboot)+'\n')
     
   
@@ -568,11 +565,11 @@ def main():
                 sleep(5)
        '''     
        timealreadyboot = boottimes()
-
+       print (timealreadyboot)
        while(1):
             try:
               
-              task_menu2(timealreadyboot)
+              task_menu2()
               
             except KeyboardInterrupt:
               print('interrupted!')
