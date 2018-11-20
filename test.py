@@ -214,6 +214,7 @@ def task_menu2():
 
     startShow()
     menu = {
+    
         0: " Stress test: CPU, Memory and EMMC (hard disk)",
         1: " Modify Mac address",
         2: " Show Current sensor info",
@@ -272,7 +273,7 @@ def print_menu2():
     
 
       
-    item = input('\n --Input item you want to test..%d..\n'%( timealreadyboot))
+    item = input('\n --Input item you want to test bootcount='+str(timealreadyboot)+'\n')
     
   
     for case in switch(item):
