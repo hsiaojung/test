@@ -223,10 +223,10 @@ def task_menu2():
         7: " Test SD CARD",
         8: " Test USB Camera,Take picture and save at SDCARD",
         9: " Test RS485 function over UART1",
-        10: " Test LTE network"
-        10: " Auto Login + boot count"
-        #12: " disable Auto Login,back to normal!"
-        #13: " fixed hdmi pattern mode"
+        10: " Test LTE ",
+        11:" Auto Login + boot count",
+        12:" disable Auto Login,back to normal!",
+        13:" fixed hdmi pattern mode"
     }
     while True:
 
