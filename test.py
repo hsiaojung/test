@@ -256,7 +256,7 @@ def boottimes():
     path = "/home/pi/bootcount"
     file = open(path, 'r+')
     bc = file.readline()
-    print("bc=%s"%bc)
+    #print("bc=%s"%bc)
     rc = int(bc)
     file.close() 
 
@@ -264,7 +264,7 @@ def boottimes():
     file = open(path, 'w')
     rc = rc + 1
     ret = rc
-    print("rc=%d"%rc)
+    #print("rc=%d"%rc)
     file.write(str(rc))
     file.close()     
     return ret
@@ -272,8 +272,7 @@ def boottimes():
 def print_menu2(timealreadyboot):
 
     item = input('\n --Input item you want to test (current bootcount index)='+str(timealreadyboot)+'\n')
-    
-  
+
     for case in switch(item):
         if case('0'):
             print('== Test cpu and memory==')
