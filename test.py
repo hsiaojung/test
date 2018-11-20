@@ -21,6 +21,7 @@ import netifaces as ni
 
 timealreadyboot = 0
 
+
 def signal_handler(signal, frame):
     print("\nprogram exiting gracefully")
     sys.exit(0)
