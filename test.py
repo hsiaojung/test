@@ -261,9 +261,11 @@ def autologinmode():
     
     rc = rc + 1
     print("rc="%rc)
-    file2 = open(path, 'w')
-    file2.write(str(rc))
-    file2.close()     
+    #file2 = open(path, 'w')
+    #file2.write(str(rc))
+    #file2.close()     
+    os.system("sudo echo "+rc+" > /home/pi/bootcount ")
+    #os.system("sudo echo ethtool -E eth0 magic 0x9500 offset 0 value 0xA5")
     return rc
 
     
