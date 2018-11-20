@@ -261,10 +261,11 @@ def boottimes():
     
     file = open(path, 'w')
     rc = rc + 1
+    ret = rc
     print("rc=%d"%rc)
     file.write(str(rc))
     file.close()     
-    return rc
+    return ret
 
 def print_menu2():
 
