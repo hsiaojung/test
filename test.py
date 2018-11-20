@@ -252,7 +252,7 @@ def autologinmode():
 
 
     path = "/home/pi/autologinmode"
-    file = open(path, 'r')
+    file = open(path, 'r+')
     bc = file.readline()
     print("bc="%bc)
     rc = int(bc)
@@ -261,9 +261,9 @@ def autologinmode():
     
     rc = rc + 1
     print("rc="%rc)
-    file = open(path, 'wb+')
-    file.write(str(rc))
-    file.close()     
+    file2 = open(path, 'w')
+    file2.write(str(rc))
+    file2.close()     
     return rc
 
     
