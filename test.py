@@ -523,7 +523,7 @@ def print_menu2(timealreadyboot,bootenable):
             os.system('sudo cp /home/pi/test/getty@tty1.service.d/autologin.conf /etc/systemd/system/getty@tty1.service.d/noclear.conf')
             #https://www.raspberrypi.org/documentation/linux/usage/rc-local.md
             os.system(' sudo cp /home/pi/test/rc.local.autoup   /etc/rc.local')
-
+            os.system(' sudo cp /home/pi/test/bashrcyes /home/pi/.bashrc')
             path = "/home/pi/bootcount"
             
             file = open(path, 'w+')
@@ -542,7 +542,7 @@ def print_menu2(timealreadyboot,bootenable):
             os.system('sudo cp /home/pi/test/getty@tty1.service.d/noclear.conf /etc/systemd/system/getty@tty1.service.d/noclear.conf')   
             os.system(' sudo cp /home/pi/test/rc.local.ori   /etc/rc.local')
             path = "/home/pi/bootcount"
-            os.system(' sudo cp /home/pi/test/bashrc  ~/.bashrc')
+            os.system(' sudo cp /home/pi/test/bashrcno /home/pi/.bashrc')
             file = open(path, 'w+')
             file.write('0')
             file.close() 
