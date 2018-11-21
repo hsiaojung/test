@@ -401,7 +401,7 @@ def print_menu2(timealreadyboot,bootenable):
             
             if ret == 1:
                 os.system('mount /dev/mmcblk1p1 /mnt')    
-                os.system('fswebcam /mnt/SMG-01.jpg')
+                os.system('fswebcam --skip 3 /mnt/SMG-01.jpg')
                 os.system('umount /mnt')  
                 print("\n\n We save picture named 'SMG-01.jpg' into /dev/mmcblk1p1 (/mnt), you can pull out sdcard to check picture if it exist!!")
                 print("\n \n")
