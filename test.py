@@ -564,7 +564,6 @@ def main():
                 sleep(5)
        '''     
        timealreadyboot = boottimes()
-       print (timealreadyboot)
        while(1):
             try:
               
