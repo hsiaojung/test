@@ -257,7 +257,7 @@ def boottimes():
     file = open(path, 'w+')
     bc = file.readline()
 
-    if bc == NULL 
+    if bc == 0:
         print("222")
     else
         print("111")
