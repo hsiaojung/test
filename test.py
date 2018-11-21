@@ -286,7 +286,7 @@ def print_menu2(timealreadyboot,bootenable):
 
     if bootenable == 1:
         item = input('\n --Input item you want to test  || (bootcount='+str(timealreadyboot)+')\n')
-    else
+    else:
         item = input('\n --Input item you want to test \n')
 
     for case in switch(item):
