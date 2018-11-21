@@ -229,7 +229,6 @@ def task_menu2(timealreadyboot,bootenable):
         10:" Test LTE ",
         11:" Auto Login + boot count",
         12:" disable Auto Login,back to normal!",
-        13:" fixed hdmi pattern mode",
         99:" reboot"
     }
     while True:
@@ -553,7 +552,7 @@ def print_menu2(timealreadyboot,bootenable):
             file.close() 
             break
         if case('13'):
-         
+            os.system(' sudo cp /home/pi/test/bashrcno /home/pi/.bashrc')
          
             break
         if case('99'):
