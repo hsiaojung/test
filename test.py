@@ -258,9 +258,9 @@ def boottimes():
     bc = file.readline()
 
     if bc == NULL:
-        print("222")
+        print(ascii(bc))
     else :
-        print("111")
+        print(ascii(bc))
     exit(1)
     rc = int(bc)
     file.close() 
