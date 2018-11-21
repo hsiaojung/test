@@ -254,7 +254,7 @@ def boottimes():
 
 
     path = "/home/pi/bootcount"
-    file = open(path, 'r+')
+    file = open(path, 'w+')
     bc = file.readline()
     #print("bc=%s"%bc)
     rc = int(bc)
