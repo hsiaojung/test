@@ -552,7 +552,7 @@ def print_menu2(timealreadyboot,bootenable):
             file.close() 
             break
         if case('13'):
-            os.system(' sudo cp /home/pi/test/bashrcno /home/pi/.bashrc')
+            os.system('sudo fbi -T 1 -noverbose /home/pi/test/test.bmp -a')
          
             break
         if case('99'):
