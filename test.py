@@ -20,6 +20,7 @@ import datetime
 import netifaces as ni
 
 timealreadyboot = 0
+bootenable = 0
 
 
 def signal_handler(signal, frame):
@@ -210,7 +211,7 @@ def task_menu():
     lst = print_menu()
     print(lst)
  '''
-def task_menu2(timealreadyboot):
+def task_menu2(timealreadyboot,bootenable):
 
     startShow()
     menu = {
@@ -240,7 +241,7 @@ def task_menu2(timealreadyboot):
      
             print ("(%d) [%s]"%(i,menu[i]))
             
-        lst = print_menu2(timealreadyboot)
+        lst = print_menu2(timealreadyboot,bootenable)
 
 def exists(path):
     """Test whether a path exists.  Returns False for broken symbolic links"""
@@ -267,10 +268,26 @@ def boottimes():
     file.write(str(rc))
     file.close()     
     return ret
+    
+def bootenables():
 
-def print_menu2(timealreadyboot):
 
-    item = input('\n --Input item you want to test  || (bootcount='+str(timealreadyboot)+')\n')
+    path = "/home/pi/bootenable"
+    file = open(path, 'r')
+    bc = file.readline()
+    rc = int(bc)
+    file.close() 
+
+    return rc
+    
+        
+
+def print_menu2(timealreadyboot,bootenable):
+
+    if bootenable == 1:
+        item = input('\n --Input item you want to test  || (bootcount='+str(timealreadyboot)+')\n')
+    else
+        item = input('\n --Input item you want to test \n')
 
     for case in switch(item):
         if case('0'):
@@ -572,11 +589,12 @@ def main():
                 sleep(5)
        '''     
        timealreadyboot = boottimes()
+       bootenable = bootenables()
 
        while(1):
             try:
               
-              task_menu2(timealreadyboot)
+              task_menu2(timealreadyboot,bootenable)
               
             except KeyboardInterrupt:
               print('interrupted!')
