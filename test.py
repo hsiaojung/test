@@ -259,7 +259,7 @@ def boottimes():
 
     if bc == 0:
         print("222")
-    else
+    else :
         print("111")
     exit(1)
     rc = int(bc)
