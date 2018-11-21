@@ -522,7 +522,12 @@ def print_menu2(timealreadyboot):
             path = "/home/pi/bootcount"
             file = open(path, 'w+')
             file.write('0')
-            file.close()     
+            file.close() 
+
+            path = "/home/pi/bootenable"
+            file = open(path, 'w+')
+            file.write('1')
+            file.close()  
             break
         if case('13'):
             print('==\n back to normal mode without auto login ! ==\n\n') 
@@ -530,6 +535,10 @@ def print_menu2(timealreadyboot):
             os.system('sudo cp /home/pi/test/getty@tty1.service.d/noclear.conf /etc/systemd/system/getty@tty1.service.d/noclear.conf')   
             
             path = "/home/pi/bootcount"
+            file = open(path, 'w+')
+            file.write('0')
+            file.close() 
+            path = "/home/pi/bootenable"
             file = open(path, 'w+')
             file.write('0')
             file.close() 
