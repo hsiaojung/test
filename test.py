@@ -256,7 +256,10 @@ def boottimes():
     path = "/home/pi/bootcount"
     file = open(path, 'w+')
     bc = file.readline()
-    #print("bc=%s"%bc)
+
+    
+    print("bc=%s"%bc)
+    exit(1)
     rc = int(bc)
     file.close() 
 
@@ -564,6 +567,7 @@ def main():
                 sleep(5)
        '''     
        timealreadyboot = boottimes()
+
        while(1):
             try:
               
