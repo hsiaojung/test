@@ -229,6 +229,7 @@ def task_menu2(timealreadyboot,bootenable):
         10:" Test LTE ",
         11:" Auto Login + boot count",
         12:" disable Auto Login,back to normal!",
+        13:" HDMI Pattern output",
         99:" reboot"
     }
     while True:
