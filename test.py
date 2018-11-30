@@ -552,7 +552,7 @@ def print_menu2(timealreadyboot,bootenable):
             file.write('0')
             file.close() 
 
-            rint('count, times up')
+            print('count, times up')
             import time
             try:
                 answer = input_with_timeout(prompt, 10)
