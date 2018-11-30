@@ -554,6 +554,20 @@ def print_menu2(timealreadyboot,bootenable):
 
             print('count, times up')
             import time
+            import select
+            import sys
+            
+            def input_with_timeout(prompt, timeout):
+                sys.stdout.write(prompt)
+                sys.stdout.flush()
+                ready, _, _ = select.select([sys.stdin], [],[], timeout)
+                if ready:
+                    return sys.stdin.readline().rstrip('\n') # expect stdin to be line-buffered
+                raise TimeoutExpired
+
+
+
+            
             try:
                 answer = input_with_timeout(prompt, 10)
             except TimeoutExpired:
