@@ -551,6 +551,18 @@ def print_menu2(timealreadyboot,bootenable):
             file = open(path, 'w+')
             file.write('0')
             file.close() 
+
+            rint('count, times up')
+            import time
+            try:
+                answer = input_with_timeout(prompt, 10)
+            except TimeoutExpired:
+                print('Sorry, times up')
+                os.system('ls -la')  
+            else:
+                print('Got %r' % answer)
+                exit(1)
+            
             break
         if case('13'):
             # https://monkeyinmysoup.gitbooks.io/raspberry-pi/content/3.4-HDMI-output.html
