@@ -552,6 +552,19 @@ def print_menu2(timealreadyboot,bootenable):
             file.write('0')
             file.close() 
 
+            import time
+            count = 0
+            a = 6
+            while (count < a):
+                count_now = a - count
+                print(count_now)
+                print("\n please ctrl-c to exit this count\n")
+                time.sleep(1)#sleep 1 second
+                count += 1
+                
+            print('done')
+            os.system('ls -la') 
+
             
             break
         if case('13'):
@@ -573,7 +586,7 @@ def print_menu2(timealreadyboot,bootenable):
             print('==\n reboot system ! ==\n\n') 
           
             os.system('sudo reboot')   
-
+           
             break
                  
         if case(''):
