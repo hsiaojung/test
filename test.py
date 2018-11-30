@@ -557,8 +557,8 @@ def print_menu2(timealreadyboot,bootenable):
             TIMEOUT = 5 # number of seconds your want for timeout
             
             def interrupted(signum, frame):
-                "called when read times out"
-                print 'interrupted!'
+                
+                print("called when read times out")
             signal.signal(signal.SIGALRM, interrupted)
             
             def input():
