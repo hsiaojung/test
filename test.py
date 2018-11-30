@@ -551,7 +551,7 @@ def print_menu2(timealreadyboot,bootenable):
             file = open(path, 'w+')
             file.write('0')
             file.close() 
-
+            '''
             import time
             count = 0
             a = 6
@@ -565,7 +565,7 @@ def print_menu2(timealreadyboot,bootenable):
             print('done')
             os.system('ls -la') 
 
-            
+            '''
             break
         if case('13'):
             # https://monkeyinmysoup.gitbooks.io/raspberry-pi/content/3.4-HDMI-output.html
