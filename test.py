@@ -292,7 +292,7 @@ def print_menu2(timealreadyboot,bootenable):
         while (count < a):
             count_now = a - count
             print(count_now)
-            print("\n please ctrl-c to exit this count=%d,time=%s\n"(%count_now,timealreadyboot))
+            print("\n please ctrl-c to exit this count=%d,time=%s\n"%(count_now,timealreadyboot))
             time.sleep(1)#sleep 1 second
             count += 1
 
