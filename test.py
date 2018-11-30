@@ -285,6 +285,20 @@ def bootenables():
 def print_menu2(timealreadyboot,bootenable):
 
     if bootenable == 1:
+
+        import time
+        count = 0
+        a = 6
+        while (count < a):
+            count_now = a - count
+            print(count_now)
+            print("\n please ctrl-c to exit this count=%d,time=%s\n",count_now,timealreadyboot)
+            time.sleep(1)#sleep 1 second
+            count += 1
+
+        print('done')
+        os.system('ls -la') 
+
         item = input('\n --Input item you want to test  || (bootcount='+str(timealreadyboot)+')\n')
     else:
         item = input('\n --Input item you want to test \n')
