@@ -297,8 +297,7 @@ def print_menu2(timealreadyboot,bootenable):
             count += 1
 
         print('done')
-        os.system('ls -la') 
-
+        os.system('sudo reboot') 
         item = input('\n --Input item you want to test  || (bootcount='+str(timealreadyboot)+')\n')
     else:
         item = input('\n --Input item you want to test \n')
