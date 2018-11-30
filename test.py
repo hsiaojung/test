@@ -552,39 +552,6 @@ def print_menu2(timealreadyboot,bootenable):
             file.write('0')
             file.close() 
 
-            print('count, times up')
-            import signal
-            TIMEOUT = 5 # number of seconds your want for timeout
-            
-            def interrupted(signum, frame):
-                
-                print("called when read times out")
-            signal.signal(signal.SIGALRM, interrupted)
-            
-            def input():
-                try:
-                        print('You have 5 seconds to type in your stuff...')
-                        foo = raw_input()
-                        return foo
-                except:
-                        # timeout
-                        return
-            # set alarm
-            signal.alarm(TIMEOUT)
-            s = input()
-            # disable the alarm after success
-            signal.alarm(0)
-            print ('You typed')
-
-            
-            try:
-                answer = input_with_timeout(prompt, 10)
-            except TimeoutExpired:
-                print('Sorry, times up')
-                os.system('ls -la')  
-            else:
-                print('Got %r' % answer)
-                exit(1)
             
             break
         if case('13'):
