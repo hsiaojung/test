@@ -647,6 +647,14 @@ def print_menu2(timealreadyboot,bootenable):
             GPIO.setup(pin, GPIO.IN)
             print("read GPIO12=",GPIO.input(pin)) 
             GPIO.cleanup()
+
+            pin=12
+            import RPi.GPIO as GPIO
+            GPIO.setwarnings(False) 
+            GPIO.setmode(GPIO.BCM)
+            GPIO.setup(pin, GPIO.IN)
+            print("read GPIO13=",GPIO.input(pin)) 
+            GPIO.cleanup()
             break  
              
         if case('99'):
