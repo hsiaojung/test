@@ -611,7 +611,7 @@ def print_menu2(timealreadyboot,bootenable):
             GPIO.setmode(GPIO.BCM)
             GPIO.setup(pin, GPIO.OUT)
             GPIO.output(pin, GPIO.HIGH)
-            for i in range(30):
+            for i in range(15):
                 GPIO.output(pin, GPIO.LOW)
                 sleep(1)
                 GPIO.output(pin, GPIO.HIGH)
@@ -627,7 +627,7 @@ def print_menu2(timealreadyboot,bootenable):
             GPIO.setmode(GPIO.BCM)
             GPIO.setup(pin, GPIO.OUT)
             GPIO.output(pin, GPIO.HIGH)
-            for i in range(30):
+            for i in range(15:
                 GPIO.output(pin, GPIO.LOW)
                 sleep(0.5)
                 GPIO.output(pin, GPIO.HIGH)
