@@ -639,7 +639,7 @@ def print_menu2(timealreadyboot,bootenable):
             GPIO.cleanup()
             break
         if case('16'):
-            print('==\n  Test GPIO 16 by reading status==\n\n') 
+            print('==\n  Test GPIO  by reading GPIO12/13 status==\n\n') 
             pin=12
             import RPi.GPIO as GPIO
             GPIO.setwarnings(False) 
@@ -655,6 +655,7 @@ def print_menu2(timealreadyboot,bootenable):
             GPIO.setup(pin, GPIO.IN)
             print("read GPIO13=",GPIO.input(pin)) 
             GPIO.cleanup()
+            print("\n\n\n")
             break  
              
         if case('99'):
