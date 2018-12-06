@@ -623,7 +623,7 @@ def print_menu2(timealreadyboot,bootenable):
             GPIO.output(pin, GPIO.HIGH)
             for i in range(30):
                 GPIO.output(pin, GPIO.LOW)
-                time.sleep(0.5)
+                time.sleep(1)
                 GPIO.output(pin, GPIO.HIGH)
 
             GPIO.cleanup()
