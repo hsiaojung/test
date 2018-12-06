@@ -235,8 +235,8 @@ def task_menu2(timealreadyboot,bootenable):
         11:" Auto Login + boot count",
         12:" Disable Auto Login,back to normal!",
         13:" HDMI Pattern output",
-        14:" GPIO 43 test ",
-        15:" GPIO 42 test ",
+        14:" GPIO 43 test by Flashing an LED every secound"
+        15:" GPIO 42 test by Flashing an LED every half secound",
         99:" reboot"
     }
     while True:
