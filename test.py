@@ -615,6 +615,8 @@ def print_menu2(timealreadyboot,bootenable):
                 sleep(1)
                 GPIO.output(pin, GPIO.HIGH)
                 sleep(1)
+
+            GPIO.output(pin, GPIO.HIGH)    
             GPIO.cleanup()
             break
         if case('15'):
@@ -629,6 +631,8 @@ def print_menu2(timealreadyboot,bootenable):
                 sleep(0.5)
                 GPIO.output(pin, GPIO.HIGH)
                 sleep(0.5)
+
+            GPIO.output(pin, GPIO.HIGH)    
             GPIO.cleanup()
 
             break 
