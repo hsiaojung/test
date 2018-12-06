@@ -16,6 +16,9 @@ import serial
 import smbus
 import time
 import datetime
+import os
+import RPi.GPIO as GPIO
+import time
 
 import netifaces as ni
 
