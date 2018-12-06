@@ -6,6 +6,8 @@ import subprocess
 import decimal
 import re
 import sys
+import time
+
 from time import sleep
 from threading import Thread
 import os
@@ -18,7 +20,7 @@ import time
 import datetime
 import os
 import RPi.GPIO as GPIO
-import time
+
 
 import netifaces as ni
 
@@ -609,7 +611,7 @@ def print_menu2(timealreadyboot,bootenable):
             GPIO.output(pin, GPIO.HIGH)
             for i in range(30):
                 GPIO.output(pin, GPIO.LOW)
-                time.sleep(1)
+                sleep(1)
                 GPIO.output(pin, GPIO.HIGH)
                 
             GPIO.cleanup()
@@ -623,7 +625,7 @@ def print_menu2(timealreadyboot,bootenable):
             GPIO.output(pin, GPIO.HIGH)
             for i in range(30):
                 GPIO.output(pin, GPIO.LOW)
-                time.sleep(1)
+                sleep(0.5)
                 GPIO.output(pin, GPIO.HIGH)
 
             GPIO.cleanup()
