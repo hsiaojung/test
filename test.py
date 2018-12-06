@@ -237,6 +237,7 @@ def task_menu2(timealreadyboot,bootenable):
         13:" HDMI Pattern output",
         14:" GPIO 43 test by Flashing an LED every secound",
         15:" GPIO 42 test by Flashing an LED every half secound",
+        16:" Read GPIO 12/13 ",
         99:" reboot"
     }
     while True:
