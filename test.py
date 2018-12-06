@@ -606,6 +606,8 @@ def print_menu2(timealreadyboot,bootenable):
             ## https://www.raspberrypi.org/forums/viewtopic.php?t=210720
             print('==\n  Test GPIO 43 by setting on and off==\n\n') 
             pin=43
+            
+            import RPi.GPIO as GPIO
             GPIO.setmode(GPIO.BCM)
             GPIO.setup(pin, GPIO.OUT)
             GPIO.output(pin, GPIO.HIGH)
@@ -620,6 +622,8 @@ def print_menu2(timealreadyboot,bootenable):
         if case('15'):
             print('==\n  Test GPIO 42 by setting on and off==\n\n') 
             pin=42
+            
+            import RPi.GPIO as GPIO
             GPIO.setmode(GPIO.BCM)
             GPIO.setup(pin, GPIO.OUT)
             GPIO.output(pin, GPIO.HIGH)
