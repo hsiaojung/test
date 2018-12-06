@@ -615,7 +615,7 @@ def print_menu2(timealreadyboot,bootenable):
                 GPIO.output(pin, GPIO.LOW)
                 sleep(1)
                 GPIO.output(pin, GPIO.HIGH)
-                
+                sleep(1)
             GPIO.cleanup()
             break
             
@@ -631,7 +631,7 @@ def print_menu2(timealreadyboot,bootenable):
                 GPIO.output(pin, GPIO.LOW)
                 sleep(0.5)
                 GPIO.output(pin, GPIO.HIGH)
-
+                sleep(0.5)
             GPIO.cleanup()
 
             break 
