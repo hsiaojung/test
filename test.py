@@ -638,7 +638,15 @@ def print_menu2(timealreadyboot,bootenable):
             GPIO.cleanup()
 
             break 
-         
+       if case('16'):
+            print('==\n  Test GPIO 42 by setting on and off==\n\n') 
+            pin=12
+            import RPi.GPIO as GPIO
+            GPIO.setwarnings(False) 
+            GPIO.setmode(GPIO.BCM)
+            GPIO.setup(pin, GPIO.IN)
+            ptrint ("read GPIO12=",GPIO.input(pin)) 
+            GPIO.cleanup()
             break              
         if case('99'):
             print('==\n reboot system ! ==\n\n') 
