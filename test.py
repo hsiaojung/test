@@ -648,7 +648,7 @@ def print_menu2(timealreadyboot,bootenable):
             print("read GPIO12=",GPIO.input(pin)) 
             GPIO.cleanup()
 
-            pin=12
+            pin=13
             import RPi.GPIO as GPIO
             GPIO.setwarnings(False) 
             GPIO.setmode(GPIO.BCM)
