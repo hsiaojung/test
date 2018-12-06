@@ -230,6 +230,8 @@ def task_menu2(timealreadyboot,bootenable):
         11:" Auto Login + boot count",
         12:" Disable Auto Login,back to normal!",
         13:" HDMI Pattern output",
+        14:" GPIO 43 test ",
+        15:" GPIO 42 test ",
         99:" reboot"
     }
     while True:
@@ -595,6 +597,35 @@ def print_menu2(timealreadyboot,bootenable):
             os.system('sudo fbi -T 1 -noverbose /home/pi/test/test.bmp -a')
          
             break
+        if case('14'):
+            ## https://www.raspberrypi.org/forums/viewtopic.php?t=210720
+            print('==\n  Test GPIO 43 by setting on and off==\n\n') 
+            pin=43
+            GPIO.setmode(GPIO.BCM)
+            GPIO.setup(pin, GPIO.OUT)
+            GPIO.output(pin, GPIO.HIGH)
+            for i in range(30):
+                GPIO.output(pin, GPIO.LOW)
+                time.sleep(1)
+                GPIO.output(pin, GPIO.HIGH)
+            GPIO.cleanup()
+            break      
+       if case('15'):
+            print('==\n  Test GPIO 42 by setting on and off==\n\n') 
+            pin=42
+            GPIO.setmode(GPIO.BCM)
+            GPIO.setup(pin, GPIO.OUT)
+            GPIO.output(pin, GPIO.HIGH)
+            for i in range(30):
+                GPIO.output(pin, GPIO.LOW)
+                time.sleep(0.5)
+                GPIO.output(pin, GPIO.HIGH)
+
+            GPIO.cleanup()
+
+            break 
+         
+            break              
         if case('99'):
             print('==\n reboot system ! ==\n\n') 
           
