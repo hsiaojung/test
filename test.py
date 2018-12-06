@@ -608,8 +608,10 @@ def print_menu2(timealreadyboot,bootenable):
                 GPIO.output(pin, GPIO.LOW)
                 time.sleep(1)
                 GPIO.output(pin, GPIO.HIGH)
+                
             GPIO.cleanup()
-            break      
+            break
+            
        if case('15'):
             print('==\n  Test GPIO 42 by setting on and off==\n\n') 
             pin=42
