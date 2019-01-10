@@ -731,9 +731,7 @@ def print_menu2(timealreadyboot,bootenable):
             
             print("\n \n")
             break
-
-            
-         if case('27'):
+        if case('27'):
             print('== \n \n Test RS485 over UART now! ==') 
             print('== \n \n  Please open remote terminal to connect this unit first ==') 
             print('==\n  Enable GPIO5 for RS485 PWR') 
@@ -754,7 +752,7 @@ def print_menu2(timealreadyboot,bootenable):
             GPIO.output(pin, GPIO.LOW)
             print("\n \n")
             break
-         if case('28'):
+        if case('28'):
             print('==\n  Enable GPIO38 for LTE PWR') 
             pin=38
             GPIO.setwarnings(False) 
