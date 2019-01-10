@@ -232,7 +232,7 @@ def task_menu2(timealreadyboot,bootenable):
         8: " Test USB Camera,Take picture and save at SDCARD",
         9: " Test RS485 function over UART1",
         10:" Test LTE ",
-        11:" Auto Login + boot count",
+        11:" Auto Login + set boot count to 0 for next time! ",
         12:" Disable Auto Login,back to normal!",
         13:" HDMI Pattern output",
         14:" GPIO 43 test by Flashing an LED every secound",
