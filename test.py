@@ -236,6 +236,7 @@ def task_menu2(timealreadyboot,bootenable):
         12:" Disable Auto Login,back to normal!",
         13:" HDMI Pattern output",
         17:" Test Ethernet by asking dhcp and ping google",
+        
         14:" GPIO 43 test by Flashing an LED every secound for A1 hardware Only!",
         15:" GPIO 42 test by Flashing an LED every half secound for A1 hardware Only! ",
         16:" Read GPIO 12/13 for A1 hardware Only! ",
