@@ -660,8 +660,7 @@ def print_menu2(timealreadyboot,bootenable):
             print("\n\n\n")
             break  
        if case('17'):
-			print('==\n  Test Network(ETH0) by requesting dhcp server to Ping 8.8.8.8==\n\n') 
-
+            print('==\n  Test Network(ETH0) by requesting dhcp server to Ping 8.8.8.8==\n\n')
 			os.system('sudo dhclient eth0')  
 			os.system('sudo dhclient eth0')
 			
