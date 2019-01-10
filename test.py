@@ -689,7 +689,7 @@ def print_menu2(timealreadyboot,bootenable):
             else:
                 print ("\n  Etho is failed!\n\n\n")
             break
-         if case('25'):
+        if case('25'):
             print('== start lora_tx module ==')
             print('==\n  Enable GPIO39 for LORA PWR') 
             pin=39
