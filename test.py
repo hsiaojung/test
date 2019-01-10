@@ -688,7 +688,6 @@ def print_menu2(timealreadyboot,bootenable):
                 break
             else:
                 print ("\n  Etho is failed!\n\n\n")
-
             break
          if case('25'):
             print('== start lora_tx module ==')
