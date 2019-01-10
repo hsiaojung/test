@@ -238,6 +238,7 @@ def task_menu2(timealreadyboot,bootenable):
         14:" GPIO 43 test by Flashing an LED every secound",
         15:" GPIO 42 test by Flashing an LED every half secound",
         16:" Read GPIO 12/13 ",
+        17:" Test Ethernet by asking dhcp and ping google",
         99:" reboot"
     }
     while True:
