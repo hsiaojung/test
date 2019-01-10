@@ -223,13 +223,13 @@ def task_menu2(timealreadyboot,bootenable):
     
         0: " Stress test: CPU, Memory and EMMC (hard disk)",
         1: " Modify Mac address",
-        2: " Show Current sensor info",
-        3: " Show Voltage sensor info",
+        2: " no function",
+        3: " no function",
         4: " Test DHT11/22",
         5: " Test LoRa function over UART0 TX",
         6: " Test LoRa function over UART0 Rx",
         7: " Test SD CARD",
-        8: " Test USB Camera,Take picture and save at SDCARD",
+        8: " no function",
         9: " Test RS485 function over UART1",
         10:" Test LTE by pppd and ping  google 8888",
         11:" Auto Login + set boot count to 0 for next time! ",
@@ -367,12 +367,16 @@ def print_menu2(timealreadyboot,bootenable):
 
             break
         if case('2'):
+            print('==  no function ==\n\n')
+            break
             print('== Reading i2c dev from bus 1 ,0x4d ==\n\n')
-            i2c_current_sensor()
+            i#2c_current_sensor()
             print('\n')
             break
         if case('3'):
-            print('== Reading i2c dev from bus 1 ,0x4b==\n\n')
+            print('==  no function ==\n\n')
+            break
+            print('== Reading i2c dev from bus 1 ,0x4d ==\n\n')
             i2c_voltage_sensor()
             print('\n')
             ''' 
@@ -436,6 +440,8 @@ def print_menu2(timealreadyboot,bootenable):
         if case('8'):
             #https://www.raspberrypi.org/documentation/usage/webcams/
             # sudo apt-get install fswebcam 
+            print('==  no function ==\n\n')
+            break
             print('== Test USB camera now! this function also verify USB interface! ==')
             
             ret = exists('/dev/mmcblk1')
