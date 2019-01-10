@@ -666,10 +666,10 @@ def print_menu2(timealreadyboot,bootenable):
             time.sleep(2)
             response = os.system("ping -c 1 " + hostname)
             if response == 0:
-                print ("\n\n  ETH0 is up!")
+                print ("\n  ETH0 is up!\n\n\n")
                 break
             else:
-                print ("\n\n  Etho is failed!")
+                print ("\n  Etho is failed!\n\n\n")
 
             break      
         if case('99'):
