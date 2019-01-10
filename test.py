@@ -239,6 +239,10 @@ def task_menu2(timealreadyboot,bootenable):
         15:" GPIO 42 test by Flashing an LED every half secound",
         16:" Read GPIO 12/13 ",
         17:" Test Ethernet by asking dhcp and ping google",
+        25:" (unconfirmed)Test LoRa function over UART0 TX for A1 hardware Only!!",
+        26:" (unconfirmed)Test LoRa function over UART0 Rx for A1 hardware Only!!",
+        27:" (unconfirmed)Test RS485 function over UART1 for A1 hardware Only!!",
+        28:" (unconfirmed)Test LTE for A1 hardware Only",
         99:" reboot"
     }
     while True:
@@ -685,7 +689,111 @@ def print_menu2(timealreadyboot,bootenable):
             else:
                 print ("\n  Etho is failed!\n\n\n")
 
-            break      
+            break
+         if case('25'):
+            print('== start lora_tx module ==')
+            print('==\n  Enable GPIO39 for LORA PWR') 
+            pin=39
+            GPIO.setwarnings(False) 
+            GPIO.setmode(GPIO.BCM)
+            GPIO.setup(pin, GPIO.OUT)
+            GPIO.output(pin, GPIO.HIGH)
+            
+            print("\n")
+            time.sleep(2)
+            lora_tx()
+            time.sleep(1)
+            print('==\n  disable GPIO39 for LORA PWR') 
+            GPIO.setwarnings(False) 
+            GPIO.setmode(GPIO.BCM)
+            GPIO.setup(pin, GPIO.OUT)
+            GPIO.output(pin, GPIO.LOW)
+            print("\n")
+            
+            break
+        if case('26'):
+            print('== start lora_rx module ==')
+            print('==\n  Enable GPIO39 for LORA PWR') 
+            pin=39
+            GPIO.setwarnings(False) 
+            GPIO.setmode(GPIO.BCM)
+            GPIO.setup(pin, GPIO.OUT)
+            GPIO.output(pin, GPIO.HIGH)
+            print("\n")
+            time.sleep(2)
+            lora_rx()
+            time.sleep(1)
+            print('==\n  disable GPIO39 for LORA PWR') 
+            GPIO.setwarnings(False) 
+            GPIO.setmode(GPIO.BCM)
+            GPIO.setup(pin, GPIO.OUT)
+            GPIO.output(pin, GPIO.LOW)
+            
+            
+            print("\n \n")
+            break
+         if case('27'):
+            print('== \n \n Test RS485 over UART now! ==') 
+            print('== \n \n  Please open remote terminal to connect this unit first ==') 
+            print('==\n  Enable GPIO5 for RS485 PWR') 
+            pin=5
+            GPIO.setwarnings(False) 
+            GPIO.setmode(GPIO.BCM)
+            GPIO.setup(pin, GPIO.OUT)
+            GPIO.output(pin, GPIO.HIGH)
+            print("\n")
+            time.sleep(2)
+            rs485_test()
+            time.sleep(1)
+            print("\n \n")
+            print('==\n  disable GPIO5 for RS485 PWR') 
+            GPIO.setwarnings(False) 
+            GPIO.setmode(GPIO.BCM)
+            GPIO.setup(pin, GPIO.OUT)
+            GPIO.output(pin, GPIO.LOW)
+            print("\n \n")
+            break
+         if case('28'):
+            print('==\n  Enable GPIO38 for LTE PWR') 
+            pin=38
+            GPIO.setwarnings(False) 
+            GPIO.setmode(GPIO.BCM)
+            GPIO.setup(pin, GPIO.OUT)
+            GPIO.output(pin, GPIO.HIGH)
+            time.sleep(2)
+            print('==\n  Test LTE! ==\n\n') 
+            print('== please remeber to insert you sim card first==') 
+            
+            print('\n\n please wait for 16s to complete ppp0 connection!!!!\n\n ==')
+            print('== if any error happening you will see a stop!\n\n ==')
+            os.system('sudo pon 4GLTE & ')
+            sleep(16)
+            print("\n \n")
+            ni.ifaddresses('ppp0')
+            ip = ni.ifaddresses('ppp0')[ni.AF_INET][0]['addr']
+             
+            if (len(ip[2]) == 0):
+                print('Could not find IP of interface %s. Failed !!!!.\n\n' % (ip))
+            else :
+                print('Can get IP from 4G LTE module %s. PASS !!!!.\n\n' % (ip))
+                os.system('sudo route add default gw '+ ip)  
+                os.system('sudo ping -c 20 8.8.8.8')
+                os.system('sudo poff 4GLTE & ')
+                print(" \n please wait to off line for 8S\n \n")
+                sleep(8)
+                print("\n please wait to off line for 4S\n \n")
+                print("\n \n")
+                break
+
+                
+            print('==\n  disable GPIO38 for LTE PWR') 
+            import RPi.GPIO as GPIO
+            GPIO.setwarnings(False) 
+            GPIO.setmode(GPIO.BCM)
+            GPIO.setup(pin, GPIO.OUT)
+            GPIO.output(pin, GPIO.LOW)
+            break   
+                  
         if case('99'):
             print('==\n reboot system ! ==\n\n') 
           
