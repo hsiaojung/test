@@ -289,6 +289,22 @@ def bootenables():
 
     return rc
     
+def enableUsbPwr():
+
+
+    import RPi.GPIO as GPIO
+
+
+    print('==\n  Enable GPIO37 for USB_PWR_EN') 
+    pin=37
+    import RPi.GPIO as GPIO
+    GPIO.setwarnings(False) 
+    GPIO.setmode(GPIO.BCM)
+    GPIO.setup(pin, GPIO.OUT)
+    GPIO.output(pin, GPIO.HIGH)
+    
+    break
+
 
 def print_menu2(timealreadyboot,bootenable):
 
@@ -475,7 +491,7 @@ def print_menu2(timealreadyboot,bootenable):
                 print("\n \n")
                 break
             
-        if case('19'):
+        if case('79'):
             os.system("sudo ethtool -e eth0 ")
             print ("\n")
             for i in range(0x0200):
@@ -702,7 +718,7 @@ def main():
        '''     
        timealreadyboot = boottimes()
        bootenable = bootenables()
-
+       enableUsbPwr()
        while(1):
             try:
               
