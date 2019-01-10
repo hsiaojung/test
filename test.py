@@ -664,6 +664,7 @@ def print_menu2(timealreadyboot,bootenable):
             os.system('sudo dhclient eth0')
             os.system('sudo dhclient eth0')
             time.sleep(2)
+            response = os.system("ping -c 1 " + hostname)
             if response == 0:
                 print ("ETH0 is up!")
                 break
