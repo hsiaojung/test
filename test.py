@@ -302,8 +302,6 @@ def enableUsbPwr():
     GPIO.setmode(GPIO.BCM)
     GPIO.setup(pin, GPIO.OUT)
     GPIO.output(pin, GPIO.HIGH)
-    
-    break
 
 
 def print_menu2(timealreadyboot,bootenable):
