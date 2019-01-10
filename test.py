@@ -659,7 +659,24 @@ def print_menu2(timealreadyboot,bootenable):
             GPIO.cleanup()
             print("\n\n\n")
             break  
-             
+       if case('17'):
+			print('==\n  Test Network(ETH0) by requesting dhcp server to Ping 8.8.8.8==\n\n') 
+
+			os.system('sudo dhclient eth0')  
+			os.system('sudo dhclient eth0')
+			
+			time.sleep(2)
+	
+			response = os.system("ping -c 1 " + hostname)
+
+			if response == 0:
+				print ("Network(ETH0) is fine!")
+				
+			else:
+				print ("Network(ETH0) is failed!")
+
+            break  
+                  
         if case('99'):
             print('==\n reboot system ! ==\n\n') 
           
