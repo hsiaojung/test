@@ -579,7 +579,10 @@ def print_menu2(timealreadyboot,bootenable):
         if case('12'):
             print('==\n back to normal mode without auto login ! ==\n\n') 
             print('==\n this entering also clean boot count! ==\n\n') 
-            os.system('sudo cp /home/pi/test/getty@tty1.service.d/noclear.conf /etc/systemd/system/getty@tty1.service.d/noclear.conf')   
+            # 0.6 version is forced autologin to permanent status! 
+            #os.system('sudo cp /home/pi/test/getty@tty1.service.d/noclear.conf /etc/systemd/system/getty@tty1.service.d/noclear.conf')
+            # 0.6 version is forced autologin to permanent status!
+            os.system('sudo cp /home/pi/test/getty@tty1.service.d/autologin.conf /etc/systemd/system/getty@tty1.service.d/noclear.conf')
             os.system(' sudo cp /home/pi/test/rc.local.ori   /etc/rc.local')
             path = "/home/pi/bootcount"
             os.system(' sudo cp /home/pi/test/bashrcno /home/pi/.bashrc')
