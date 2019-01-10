@@ -731,6 +731,8 @@ def print_menu2(timealreadyboot,bootenable):
             
             print("\n \n")
             break
+
+            
          if case('27'):
             print('== \n \n Test RS485 over UART now! ==') 
             print('== \n \n  Please open remote terminal to connect this unit first ==') 
