@@ -817,6 +817,7 @@ def print_menu2(timealreadyboot,bootenable):
         if case('98'):
         
             print('==\n memtester  ! ==\n\n')
+            print('==\n use ctrl-c to exit ,any time!=\n\n')
             os.system('sudo memtester 800M 17 |tee /tmp/log')
             
             break
