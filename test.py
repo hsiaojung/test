@@ -815,8 +815,10 @@ def print_menu2(timealreadyboot,bootenable):
             GPIO.output(pin, GPIO.LOW)
             break   
         if case('98'):
-             print('==\n memtester  ! ==\n\n')
+        
+            print('==\n memtester  ! ==\n\n')
             os.system('sudo memtester 800M 1 |tee /tmp/log')
+            
             break
                            
         if case('99'):
