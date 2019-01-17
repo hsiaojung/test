@@ -243,6 +243,7 @@ def task_menu2(timealreadyboot,bootenable):
         26:" (unconfirmed)Test LoRa function over UART0 Rx for A1 hardware Only!!",
         27:" (unconfirmed)Test RS485 function over UART1 for A1 hardware Only!!",
         28:" (unconfirmed)Test LTE for A1 hardware Only",
+        98:" Memster",
         99:" reboot"
     }
     while True:
@@ -813,7 +814,13 @@ def print_menu2(timealreadyboot,bootenable):
             GPIO.setup(pin, GPIO.OUT)
             GPIO.output(pin, GPIO.LOW)
             break   
-                  
+       if case('98'):
+            print('==\n reboot system ! ==\n\n') 
+          
+            os.system('sudo memtester 800M 1 |tee /tmp/log')   
+           
+            break
+                           
         if case('99'):
             print('==\n reboot system ! ==\n\n') 
           
