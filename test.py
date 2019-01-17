@@ -686,6 +686,9 @@ def print_menu2(timealreadyboot,bootenable):
             print("read GPIO13 =",GPIO.input(pin)) 
             GPIO.cleanup()
             print("\n\n\n")
+
+            break
+
         if case('17'):
             print('==\n  Test Network(ETH0) by requesting dhcp server to Ping 8.8.8.8==\n\n')
             os.system('sudo dhclient eth0')
@@ -699,6 +702,8 @@ def print_menu2(timealreadyboot,bootenable):
                 print ("\n  Etho is failed!\n\n\n")
             break
         if case('25'):
+            
+            import RPi.GPIO as GPIO
             print('== start lora_tx module ==')
             print('==\n  Enable GPIO39 for LORA PWR') 
             pin=39
@@ -720,6 +725,9 @@ def print_menu2(timealreadyboot,bootenable):
             
             break
         if case('26'):
+
+
+            import RPi.GPIO as GPIO
             print('== start lora_rx module ==')
             print('==\n  Enable GPIO39 for LORA PWR') 
             pin=39
@@ -741,6 +749,9 @@ def print_menu2(timealreadyboot,bootenable):
             print("\n \n")
             break
         if case('27'):
+
+
+            import RPi.GPIO as GPIO
             print('== \n \n Test RS485 over UART now! ==') 
             print('== \n \n  Please open remote terminal to connect this unit first ==') 
             print('==\n  Enable GPIO5 for RS485 PWR') 
@@ -764,6 +775,7 @@ def print_menu2(timealreadyboot,bootenable):
         if case('28'):
             print('==\n  Enable GPIO38 for LTE PWR') 
             pin=38
+            import RPi.GPIO as GPIO
             GPIO.setwarnings(False) 
             GPIO.setmode(GPIO.BCM)
             GPIO.setup(pin, GPIO.OUT)
