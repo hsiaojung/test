@@ -656,7 +656,7 @@ def print_menu2(timealreadyboot,bootenable):
                 sleep(1)
 
             GPIO.output(pin, GPIO.LOW)    
-            GPIO.cleanup()
+            #GPIO.cleanup()
             break
         if case('15'):
             print('==\n  Test GPIO 42 by setting on and off==\n\n') 
@@ -673,7 +673,7 @@ def print_menu2(timealreadyboot,bootenable):
                 sleep(0.5)
 
             GPIO.output(pin, GPIO.LOW)    
-            GPIO.cleanup()
+            #GPIO.cleanup()
             break
         if case('16'):
             print('==\n  Test GPIO  by reading GPIO12/13 status==\n\n') 
@@ -684,7 +684,7 @@ def print_menu2(timealreadyboot,bootenable):
             #GPIO.setup(pin, GPIO.IN, GPIO.PUD_UP)
             GPIO.setup(pin, GPIO.IN)
             print("read GPIO12 =",GPIO.input(pin)) 
-            GPIO.cleanup()
+            #GPIO.cleanup()
 
             pin=13
             import RPi.GPIO as GPIO
@@ -693,7 +693,7 @@ def print_menu2(timealreadyboot,bootenable):
             #GPIO.setup(pin, GPIO.IN, GPIO.PUD_UP)
             GPIO.setup(pin, GPIO.IN)
             print("read GPIO13 =",GPIO.input(pin)) 
-            GPIO.cleanup()
+            #GPIO.cleanup()
             print("\n\n\n")
 
             break
