@@ -144,7 +144,7 @@ def startShow():
     print("#######################################################################-\n")
     print("##                                                                  #-\n")
     print("##  SMG01's fnction Test Item                                       #-\n")
-    print("##                                                              0.6 #-\n")
+    print("##                                                              0.61#-\n")
     print("#######################################################################-\n")
             
  
@@ -307,6 +307,14 @@ def enableUsbPwr():
     GPIO.setmode(GPIO.BCM)
     GPIO.setup(pin, GPIO.OUT)
     GPIO.output(pin, GPIO.HIGH)
+    print('==\n  Enable GPIO38 for USB_PWR_EN') 
+    pin=38
+    import RPi.GPIO as GPIO
+    GPIO.setwarnings(False) 
+    GPIO.setmode(GPIO.BCM)
+    GPIO.setup(pin, GPIO.OUT)
+    GPIO.output(pin, GPIO.HIGH)
+
 
 
 def print_menu2(timealreadyboot,bootenable):
@@ -788,7 +796,7 @@ def print_menu2(timealreadyboot,bootenable):
             print('\n\n please wait for 16s to complete ppp0 connection!!!!\n\n ==')
             print('== if any error happening you will see a stop!\n\n ==')
             os.system('sudo pon 4GLTE & ')
-            sleep(16)
+            sleep(24)
             print("\n \n")
             ni.ifaddresses('ppp0')
             ip = ni.ifaddresses('ppp0')[ni.AF_INET][0]['addr']
@@ -808,12 +816,16 @@ def print_menu2(timealreadyboot,bootenable):
 
                 
             print('==\n  disable GPIO38 for LTE PWR') 
+            
+            '''
             import RPi.GPIO as GPIO
             GPIO.setwarnings(False) 
             GPIO.setmode(GPIO.BCM)
             GPIO.setup(pin, GPIO.OUT)
             GPIO.output(pin, GPIO.LOW)
-            break   
+            break
+
+            '''
         if case('98'):
         
             print('==\n memtester  ! ==\n\n')
