@@ -550,7 +550,7 @@ def print_menu2(timealreadyboot,bootenable):
             print('\n\n please wait for 16s to complete ppp0 connection!!!!\n\n ==')
             print('== if any error happening you will see a stop!\n\n ==')
             os.system('sudo pon 4GLTE & ')
-            sleep(16)
+            sleep(24)
             print("get interface...1\n \n")
             ans = ni.ifaddresses('ppp0')
             print("get interface...2\n \n")
