@@ -26,7 +26,12 @@ import netifaces as ni
 
 timealreadyboot = 0
 bootenable = 0
-
+global g_lora_status
+global g_sd_status
+global g_rs485a_status
+global g_rs485b_status
+global g_lte_status
+global g_eth0_status
 
 def signal_handler(signal, frame):
     print("\nprogram exiting gracefully")
@@ -115,9 +120,7 @@ def lora_rx():
 
 	ser.close() 
 
-
-
-            
+               
 def rs485_test():
 
 	ser = serial.Serial('/dev/ttyS0',115200,timeout=23)  # open serial port
@@ -220,43 +223,38 @@ def task_menu2(timealreadyboot,bootenable):
 
     startShow()
     menu = {
-    
+ 
         0: " Stress test: CPU, Memory and EMMC (hard disk)",
         1: " Modify Mac address",
-        2: " no function",
-        3: " no function",
         4: " Test DHT11/22",
-        5: " Test LoRa function over UART0 TX",
-        6: " Test LoRa function over UART0 Rx",
         7: " Test SD CARD",
-        8: " no function",
-        9: " Test RS485 function over UART1",
-        10:" Test LTE by pppd and ping  google 8888",
         11:" Auto Login + set boot count to 0 for next time! ",
         12:" Disable Auto Login,back to normal!",
         13:" HDMI Pattern output",
-        14:" GPIO 43 test by Flashing an LED every secound for A1 hardware Only!",
-        15:" GPIO 42 test by Flashing an LED every half secound for A1 hardware Only! ",
-        16:" Read GPIO 12/13 for A1 hardware Only! ",
+        14:" GPIO 43 test by Flashing an LED every secound!",
+        15:" GPIO 42 test by Flashing an LED every half secound ! ",
+        16:" Read GPIO 12/13 status",
         17:" Test Ethernet by asking dhcp and ping google 8888",
-        25:" (unconfirmed)Test LoRa function over UART0 TX for A1 hardware Only!!",
-        26:" (unconfirmed)Test LoRa function over UART0 Rx for A1 hardware Only!!",
-        27:" (unconfirmed)Test RS485 function over UART1 for A1 hardware Only!!",
-        28:" (unconfirmed)Test LTE for A1 hardware Only",
-        98:" Memster",
+        25:" Test LoRa function over UART0 TX  ",
+        26:" Test LoRa function over UART0 Rx  ",
+        27:" Test RS485 function over UART1 ",
+        28:" Test LTE ",
+        95:" Reset LTE",
+        97:" Memster",
+        98:" Auto test run and list result!",
         99:" reboot"
     }
     while True:
-
-
-    
         ()
-        for i in menu:
-     
+        # we need force meuu (dict) tp convert to list for order arrange!
+        #http://www.runoob.com/python3/python3-func-sorted.html
+        
+        k = sorted(menu)
+        for i in k:
             print ("(%d) [%s]"%(i,menu[i]))
             
         lst = print_menu2(timealreadyboot,bootenable)
-
+          
 def exists(path):
     """Test whether a path exists.  Returns False for broken symbolic links"""
     try:
@@ -264,7 +262,230 @@ def exists(path):
     except OSError:
         return False
     return 1
-  
+    
+def chceck_DHT1122():
+    # sudo apt-get update
+     # sudo apt-get install build-essential python-dev python-openssl git
+     #git clone https://github.com/adafruit/Adafruit_Python_DHT.git && cd Adafruit_Python_DHT
+     #sudo python setup.py install
+     #cd examples
+     #sudo ./AdafruitDHT.py 11 4
+     print('== Reading from DHT22:11 4~GPIO ==\n\n\n')
+    
+     os.system('sudo /home/pi/test/Adafruit_Python_DHT/examples/AdafruitDHT.py 11 4 >  /home/pi/dt11log')
+     fo = open("/home/pi/dt11log", "r+")
+     line = fo.read(20)
+     print ("show status=%s"%(line))
+     fo.close()
+     
+     if line.find("Failed") >= 0:
+        print('== we get return it is failure,DHT11  is failed')
+        exit()
+def chceck_sd_card():
+    
+    global g_sd_status
+    g_sd_status = 0
+
+    print('==  Test SD card  ==\n')    
+    #EDIT /boot/config.txt to add these:dtoverlay=sdio,poll_once=off
+
+    ret = exists('/dev/mmcblk1')
+
+    if ret == 1:
+        os.system('mount /dev/mmcblk1p2 /mnt')    
+        os.system('touch /mnt/testSDCARD')  
+        #print("DEVICE :SD card is live,ok, SDCARD PASS")
+        os.system('rm /mnt/testSDCARD')  
+        os.system('umount /mnt')  
+        #print("\n \n")
+        g_sd_status = 1
+        
+    else :
+        print("Check SD card !,it does not exist  SDCARD is failed!")
+
+def check_rs485_tty_usb(usbdev):
+
+    x='b' if usbdev ==1 else 'a'
+    print('==  Test RS485_%s  ==\n'%x)    
+    
+    global g_rs485a_status
+    global g_rs485b_status
+    pin=5
+    GPIO.setwarnings(False) 
+    GPIO.setmode(GPIO.BCM)
+    GPIO.setup(pin, GPIO.OUT)
+    GPIO.output(pin, GPIO.HIGH)
+    pin=6
+    GPIO.setwarnings(False) 
+    GPIO.setmode(GPIO.BCM)
+    GPIO.setup(pin, GPIO.OUT)
+    GPIO.output(pin, GPIO.HIGH)
+
+    
+    if usbdev == 1 :  
+        ret = exists('/dev/ttyUSB1')
+        
+        if ret == 0 :
+            print("\n\n Check your ttyUSB1 interface,  RS485b is failed!! ")       
+            return
+        serusb = serial.Serial('/dev/ttyUSB1',115200,timeout=23)    
+    else :
+        ret = exists('/dev/ttyUSB0')
+        
+        if ret == 0 :
+            print("\n\n Check your ttyUSB0 interface,  RS485a is failed!! ")
+            return
+        serusb = serial.Serial('/dev/ttyUSB0',115200,timeout=23)    
+    ser = serial.Serial('/dev/ttyS0',115200,timeout=23)       
+    ser.write(b'\n\r \n\n if you see from remote SMG-01 machine,\n\r \n\n please enter [ exit ] to return!"')
+    state = serusb.read(50)
+    readback = state.decode('utf-8','ignore')
+    bytes.decode(state)
+    ser.close() 
+    serusb.close() 
+    #print (readback)
+    if readback.find("SMG-01") >= 0:
+        #print('== we get return AND it is we expect,  RS485%d pass !! '%usbdev)
+        
+        if usbdev == 1 :
+                g_rs485b_status = 1
+        else :
+                g_rs485a_status = 1
+             
+    else :
+        print('.. we get no return, and it is not as we expect, fail ! Rs485 is failed!! ')       
+    
+    pin=5
+    GPIO.setwarnings(False) 
+    GPIO.setmode(GPIO.BCM)
+    GPIO.setup(pin, GPIO.OUT)
+    GPIO.output(pin, GPIO.LOW)
+    pin=6
+    GPIO.setwarnings(False) 
+    GPIO.setmode(GPIO.BCM)
+    GPIO.setup(pin, GPIO.OUT)
+    GPIO.output(pin, GPIO.LOW)
+ 
+def chceck_gpio_read_write_led():
+            
+
+        print('==  Test GPIO 43 by setting on and off==\n') 
+        pin=43 
+        GPIO.setwarnings(False) 
+        GPIO.setmode(GPIO.BCM)
+        GPIO.setup(pin, GPIO.OUT)
+        GPIO.output(pin, GPIO.HIGH)
+        for i in range(2):
+            GPIO.output(pin, GPIO.LOW)
+            sleep(1)
+            GPIO.output(pin, GPIO.HIGH)
+            sleep(1)
+    
+        GPIO.output(pin, GPIO.LOW)    
+
+        print('==  Test GPIO 42 by setting on and off==\n') 
+        pin=42
+        GPIO.setwarnings(False) 
+        GPIO.setmode(GPIO.BCM)
+        GPIO.setup(pin, GPIO.OUT)
+        GPIO.output(pin, GPIO.HIGH)
+        for i in range(2):
+            GPIO.output(pin, GPIO.LOW)
+            sleep(1)
+            GPIO.output(pin, GPIO.HIGH)
+            sleep(1)
+    
+        GPIO.output(pin, GPIO.LOW)   
+        print('==  Test GPIO 5 by setting on and off==\n') 
+        pin=5 
+        GPIO.setwarnings(False) 
+        GPIO.setmode(GPIO.BCM)
+        GPIO.setup(pin, GPIO.OUT)
+        GPIO.output(pin, GPIO.HIGH)
+        for i in range(2):
+            GPIO.output(pin, GPIO.LOW)
+            sleep(1)
+            GPIO.output(pin, GPIO.HIGH)
+            sleep(1)
+    
+        GPIO.output(pin, GPIO.LOW)    
+        print('==  Test GPIO 6 by setting on and off==\n') 
+        pin=6
+        GPIO.setwarnings(False) 
+        GPIO.setmode(GPIO.BCM)
+        GPIO.setup(pin, GPIO.OUT)
+        GPIO.output(pin, GPIO.HIGH)
+        for i in range(2):
+            GPIO.output(pin, GPIO.LOW)
+            sleep(1)
+            GPIO.output(pin, GPIO.HIGH)
+            sleep(1)
+        GPIO.output(pin, GPIO.LOW)    
+        
+def chceck_lora():
+    global g_lora_status
+    g_lora_status = 0
+    import RPi.GPIO as GPIO
+    print('==  Test lora module ======\n\n')
+    pin=39
+    GPIO.setwarnings(False) 
+    GPIO.setmode(GPIO.BCM)
+    GPIO.setup(pin, GPIO.OUT)
+    GPIO.output(pin, GPIO.HIGH)
+    time.sleep(2)
+    ser = serial.Serial('/dev/ttyAMA0',115200,timeout=5)  # open serial port
+    ser.write(b'p2p set_sync 12\r\n')
+    time.sleep(1)
+    state = ser.read(25)
+    readback = state.decode('utf-8','ignore')
+    #print (readback)
+    ser.close() 
+    GPIO.setwarnings(False) 
+    GPIO.setmode(GPIO.BCM)
+    GPIO.setup(pin, GPIO.OUT)
+    GPIO.output(pin, GPIO.LOW)
+    if readback.find("Ok") >= 0:
+    	    #print('== we get return AND it is we expect, test Lora module,  Pass\n\n !! ')
+    	    g_lora_status = 1
+    else :
+    	    print('..we get no return, and it is not as we expect, fail ! lora is failed!!\n\n ')       
+ 
+def chceck_ethernet():
+
+
+    
+    print('== test  eth0  ==')
+        
+    #EDIT /boot/config.txt to add these:dtoverlay=sdio,poll_once=off
+
+    ret = exists('/dev/mmcblk1')
+
+    if ret == 1:
+        os.system('mount /dev/mmcblk1p2 /mnt')    
+        os.system('touch /mnt/testSDCARD')  
+        print("DEVICE :SD card is live,ok")
+        os.system('rm /mnt/testSDCARD')  
+        os.system('umount /mnt')  
+        print("\n \n")
+        
+    else :
+        print("Check SD card !,it does not exist  failed!")
+        exit()
+
+        
+def chceck_eth0():
+    global g_eth0_status
+    g_eth0_status = 0
+    print('==  Test Network(ETH0) by requesting dhcp server to Ping 8.8.8.8==\n')
+    os.system('sudo dhclient eth0')
+    os.system('sudo dhclient eth0')
+    time.sleep(3)
+    response = os.system("ping -c 1 " + hostname)
+    if response == 0:
+       print ("\n\n")
+       g_eth0_status = 1
+    else:
+       print ("\n  Etho is not working ,failed!\n\n\n")        
 def boottimes():
 
 
@@ -318,6 +539,15 @@ def enableUsbPwr():
 
 
 def print_menu2(timealreadyboot,bootenable):
+    
+    
+    lora_status = 0
+    sd_status = 0
+    rs485a_status = 0
+    rs485b_status = 0
+    lte_status = 0
+    eth0_status = 0
+    
 
     if bootenable == 1:
         '''
@@ -339,6 +569,95 @@ def print_menu2(timealreadyboot,bootenable):
         item = input('\n --Input item you want to test \n')
 
     for case in switch(item):
+        if case('98'):
+            global g_lora_status
+            global g_sd_status
+            global g_rs485a_status
+            global g_rs485b_status
+            global g_lte_status
+            global g_eth0_status
+            g_rs485b_status = 0
+            g_rs485a_status = 0
+            chceck_gpio_read_write_led()
+            #chceck_DHT1122()
+            chceck_sd_card()
+            check_rs485_tty_usb(0)
+            check_rs485_tty_usb(1)
+            chceck_lora()
+            chceck_eth0()
+            #chceck_LTE()
+            ### we can not design LTE test code in function call 
+            ### because it will cause python to forcing exit function block  when PPPD send unknow command !
+            print('==   Test LTE module. process needs to take 40s to complete  ======\n')
+            g_lte_status = 0
+            pin=38
+            import RPi.GPIO as GPIO
+            GPIO.setwarnings(False) 
+            GPIO.setmode(GPIO.BCM)
+            GPIO.setup(pin, GPIO.OUT)
+            GPIO.output(pin, GPIO.HIGH)
+            time.sleep(12)
+            os.system('echo NULL > /home/pi/ltelog')
+            ret = exists('/dev/ttyACM0')
+            if ret == 0:
+                print("Check LTE module ,It does not exist ,LTE is failed!")
+            else :    
+                ser = serial.Serial('/dev/ttyACM0',115200,timeout=5)  # open serial port     
+                #ser.write(b'AT+\r\n')
+                ser.write(b'AT+CPIN?\r\n')
+                tmp = ser.read(50)
+                ser.write(b'AT+CPIN?\r\n')
+                state = ser.read(50)
+                readback = state.decode('utf-8','ignore')
+                ser.close()            
+                #print (readback)
+
+                if readback.find("READY") < 0:
+                     print("Check SIM CARD,It does not exist ,LTE is failed!\n\n")
+                     
+                else :     
+                    os.system('sudo pon 4GLTE >  /home/pi/ltelog &')
+                    sleep(24)
+                    os.system('sudo poff 4GLTE >>  /home/pi/ltelog & ')
+                    fo = open("/home/pi/ltelog", "r+")
+                    line = fo.read(4555)
+                    #print ("show status=\n%s\n"%(line))
+                    fo.close()
+                    if line.find("ERROR") >= 0:
+                        print('== we get return it is failure,LTE is failed ')
+                    if line.find("address") >= 0:
+                        #print('== we get IP return it is OK!, LTE Pass\n\n')
+                        g_lte_status = 1
+                    
+            import RPi.GPIO as GPIO
+            GPIO.setwarnings(False) 
+            GPIO.setmode(GPIO.BCM)
+            GPIO.setup(pin, GPIO.OUT)
+            GPIO.output(pin, GPIO.LOW)
+            print('################################')
+            print('    Checking List result  ')
+            print('################################')
+            x='pass' if g_lora_status ==1 else 'failed'
+            print('======== Check LoRa status = %s'%x)
+            
+            x='pass' if g_sd_status ==1 else 'failed'
+            print('======== Check SD Card status = %s'%x)
+            
+            x='pass' if g_rs485a_status ==1 else 'failed'
+            print('======== Check RS485a status = %s'%x)
+            
+            x='pass' if g_rs485b_status ==1 else 'failed'
+            print('======== Check RS485b status = %s'%x)
+            
+            x='pass' if g_lte_status ==1 else 'failed'
+            print('======== Check LTE status = %s'%x)
+            
+            x='pass' if g_eth0_status ==1 else 'failed'
+            print('======== Check Ethernet status = %s'%x)
+            print('~ done\n\n')
+
+            break
+            
         if case('0'):
             print('== Test cpu and memory==')
             os.system('sudo stress --cpu 4 --vm-bytes 600M -i 1 -d 1 --hdd-bytes 512M &')
@@ -414,6 +733,7 @@ def print_menu2(timealreadyboot,bootenable):
             print('=========================================')
             print('done!\n')
             break
+    
         if case('5'):
             print('== start lora_tx module ==')
             lora_tx()
@@ -826,14 +1146,44 @@ def print_menu2(timealreadyboot,bootenable):
             break
 
             '''
-        if case('98'):
+        if case('97'):
         
             print('==\n memtester  ! ==\n\n')
             print('==\n use ctrl-c to exit ,any time!=\n\n')
             os.system('sudo memtester 800M 17 |tee /tmp/log')
             
             break
-                           
+        if case('57'):
+            ## Enable GPIO of LTE POWER PING
+            pin=38
+            import RPi.GPIO as GPIO
+            GPIO.setwarnings(False) 
+            GPIO.setmode(GPIO.BCM)
+            GPIO.setup(pin, GPIO.OUT)
+            GPIO.output(pin, GPIO.HIGH)
+     
+            break
+        if case('95'):
+            ## RESET LTE
+            pin=38
+            import RPi.GPIO as GPIO
+            GPIO.setwarnings(False) 
+            GPIO.setmode(GPIO.BCM)
+            GPIO.setup(pin, GPIO.OUT)
+            GPIO.output(pin, GPIO.HIGH)
+            time.sleep(5)
+      
+            ret = exists('/dev/ttyACM0')
+            if ret == 0:
+                print("Check LTE module ,It does not exist ,LTE is failed!")
+                exit()
+            ser = serial.Serial('/dev/ttyACM0',115200,timeout=5)  # open serial port     
+            #ser.write(b'AT+\r\n')
+            ser.write(b'AT+CFUN=16\r\n')
+            ser.close()  
+            print('==\n LTE RESET! wait for 10S ! ==\n\n') 
+     
+            break                              
         if case('99'):
             print('==\n reboot system ! ==\n\n') 
           
